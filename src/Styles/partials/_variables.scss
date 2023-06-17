@@ -1,0 +1,92 @@
+// Base Colors
+$gray-900: #606060;
+$gray-700: #bfbfbf;
+$gray-400: #a5a5a5;
+$gray-300: #ccc;
+
+// Final Colors
+$color-brand-primary: #ed1c24;
+$color-brand-secondary: #ea008a;
+$color-brand-blue: #2196f3;
+$white: #fff;
+$black: #000;
+
+// Transitions and Animations
+$animation-timing: 180ms;
+$cubic-bezier: cubic-bezier(0.36, 1.1, 0.62, 0.99);
+$transition-default: all $animation-timing linear;
+
+// Shadows
+$shadow-default: 0 10px 150px rgba($color-brand-secondary, 0.06);
+$shadow-strong: 0px 7px 30px rgba($color-brand-secondary, 0.14);
+$shadow-black: 0px 7px 30px rgba(0, 0, 0, 0.5);
+.m {
+  &-top {
+    margin-top: 80px;
+  }
+}
+
+$units: (
+  0,
+  5,
+  6,
+  8,
+  10,
+  11,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  42,
+  45,
+  50,
+  55,
+  60,
+  65,
+  70,
+  75,
+  80,
+  85,
+  90,
+  99,
+  100,
+  105,
+  140
+);
+
+@each $unit in $units {
+  .mT#{$unit} {
+    margin-top: #{$unit}px;
+  }
+
+  .mB#{$unit} {
+    margin-bottom: #{$unit}px;
+  }
+
+  .mR#{$unit} {
+    margin-right: #{$unit}px;
+  }
+
+  .mL#{$unit} {
+    margin-left: #{$unit}px;
+  }
+}
+@each $unit in $units {
+  .pT#{$unit} {
+    padding-top: #{$unit}px;
+  }
+
+  .pB#{$unit} {
+    padding-bottom: #{$unit}px;
+  }
+
+  .pR#{$unit} {
+    padding-right: #{$unit}px;
+  }
+
+  .pL#{$unit} {
+    padding-left: #{$unit}px;
+  }
+}
