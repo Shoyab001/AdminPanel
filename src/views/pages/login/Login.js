@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react'
-
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import {
   CButton,
   CCard,
@@ -9,45 +7,64 @@ import {
   CCol,
   CContainer,
   CForm,
+  CFormFeedback,
   CFormInput,
   CInputGroup,
   CInputGroupText,
   CRow,
+  CSpinner,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import { LoginPage } from 'src/_services/auth.service'
+import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import Validation from './validation'
+import { useDispatch } from 'react-redux'
 
 const Login = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  // const history=useNavigate();
-  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const [InputsValue, setInputsValue] = useState({})
+  const [ErrorObject, setErrorObject] = useState({
+    mobile_number: '',
+    password: '',
+  })
 
-  useEffect(() => {
-    if (localStorage.getItem('user-info')) {
-      navigate('/home')
-    }
-  }, [])
+  const history = useNavigate()
 
-  async function login() {
-    console.warn(username, password)
-
-    let item = { username, password }
-    let result = await fetch('https://api.debtron.com/api/debt/users/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(item),
-    })
-
-    result = await result.json()
-    let token = result?.data?.token
-
-    localStorage.setItem('token', JSON.stringify(token))
-    console.log(result)
-    navigate('/')
+  const onChangeInputs = (e) => {
+    setErrorObject({})
+    setInputsValue((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
+  const [IsLoading, setIsLoding] = useState(false)
 
+  const handleLogin = (e) => {
+    setErrorObject({})
+    // setIsLoding(true)
+    e.preventDefault()
+    Validation(InputsValue, setErrorObject)
+    if (ErrorObject.mobile_number || ErrorObject.password) {
+      return
+    }
+    LoginPage(InputsValue).then((response) => {
+      // setIsLoding(false)
+      console.log(response)
+      if (response?.data?.status) {
+        toast.success('login success')
+        let data = response?.data?.data
+        let users = response?.data?.data
+        localStorage.setItem('role', users?._id)
+        localStorage.setItem('token_key', data.token)
+        localStorage.setItem('users', JSON.stringify(data))
+        dispatch({ type: 'login-success' })
+        history('/dashboard')
+      } else {
+        setErrorObject((prev) => ({ ...prev, password: 'Invalid mobile_number or password.' }))
+      }
+    })
+  }
+  // console.log(InputsValue.mobile_number)
+  // console.log(InputsValue.password)
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -64,10 +81,16 @@ const Login = () => {
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
                       <CFormInput
-                        placeholder="Username"
-                        onChange={(e) => setUsername(e.target.value)}
-                        autoComplete="username"
+                        name="mobile_number"
+                        placeholder="mobile_number"
+                        autoComplete="mobile_number"
+                        invalid={ErrorObject?.mobile_number ? true : false}
+                        onChange={(e) => {
+                          onChangeInputs(e)
+                          setErrorObject('')
+                        }}
                       />
+                      <CFormFeedback invalid> {ErrorObject?.mobile_number}</CFormFeedback>
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
@@ -75,14 +98,29 @@ const Login = () => {
                       </CInputGroupText>
                       <CFormInput
                         type="password"
-                        placeholder="Password"
+                        name="password"
+                        placeholder="password"
                         autoComplete="current-password"
-                        onChange={(e) => setPassword(e.target.value)}
+                        invalid={setErrorObject?.password}
+                        onChange={(e) => {
+                          onChangeInputs(e)
+                          setErrorObject('')
+                        }}
                       />
+                      <CFormFeedback invalid> {ErrorObject?.password}</CFormFeedback>
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4" onClick={login}>
+                        <CButton
+                          color="primary"
+                          className="px-4"
+                          onClick={(e) => {
+                            handleLogin(e)
+                          }}
+                          // disabled={IsLoading}
+                        >
+                          {' '}
+                          {/* {IsLoading && <CSpinner />} */}
                           Login
                         </CButton>
                       </CCol>
@@ -95,11 +133,11 @@ const Login = () => {
                   </CForm>
                 </CCardBody>
               </CCard>
-              <CCard className="text-white bg-primary py-5" style={{ width: '44%' }}>
+              <CCard className="" style={{ width: '44%' }}>
                 <CCardBody className="text-center">
                   <div>
-                    <h2>Sign up</h2>
-                    <p>
+                    <h2>Raddy </h2>
+                    {/* <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua.
                     </p>
@@ -107,7 +145,7 @@ const Login = () => {
                       <CButton color="primary" className="mt-3" active tabIndex={-1}>
                         Register Now!
                       </CButton>
-                    </Link>
+                    </Link> */}
                   </div>
                 </CCardBody>
               </CCard>

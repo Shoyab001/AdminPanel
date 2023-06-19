@@ -1,21 +1,10 @@
 import React from 'react'
-import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCol,
-  CContainer,
-  CForm,
-  CFormInput,
-  CInputGroup,
-  CInputGroupText,
-  CRow,
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const UserManagment = () => {
-  return <></>
+  return (
+    <>
+    <h2>sdvafb</h2></>
+  )
 }
 
 export default UserManagment

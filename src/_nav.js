@@ -12,6 +12,7 @@ import {
   cilPuzzle,
   cilSpeedometer,
   cilStar,
+  cilUser,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -34,8 +35,8 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'Winner Prediction',
-    to: '/Winner-Prediction',
+    name: 'Declare Result',
+    to: '/DeclareResult',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     badge: {
       color: 'danger',
@@ -45,7 +46,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Profit/Loss',
-    to: '/Profit=Loss',
+    to: '/profitLoss',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     badge: {
       color: 'danger',
@@ -54,20 +55,51 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'Declare Result',
-    to: '/Result',
+    name: 'Wallet Management',
+    to: '/walletManagment',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-  },
-
-  {
-    component: CNavTitle,
-    name: 'sHOYAB',
   },
   {
     component: CNavItem,
-    name: 'SCSC',
-    to: '/theme/colors',
-    icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
+    name: 'Contact Setting',
+    to: '/contactSetting',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Payment Management',
+    to: '/paymentManagment',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Slider Image',
+    to: '/sliderImage',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Bit Filter',
+    to: '/betFilter',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Winning',
+    to: '/winning',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Notice',
+    to: '/notice',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Game Management',
+    to: '/gameManagement',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
   },
 
   {
@@ -297,8 +329,8 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Pages',
-    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
+    name: 'User',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -310,23 +342,7 @@ const _nav = [
         name: 'Register',
         to: '/register',
       },
-      {
-        component: CNavItem,
-        name: 'Error 404',
-        to: '/404',
-      },
-      {
-        component: CNavItem,
-        name: 'Error 500',
-        to: '/500',
-      },
     ],
-  },
-  {
-    component: CNavItem,
-    name: 'Docs',
-    href: 'https://coreui.io/react/docs/templates/installation/',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
 ]
 
