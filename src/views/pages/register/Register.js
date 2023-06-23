@@ -12,7 +12,7 @@ import {
   CRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
+import { cilLockLocked, cilPhone, cilUser } from '@coreui/icons'
 
 const Register = () => {
   return (
@@ -32,7 +32,7 @@ const Register = () => {
                     <CFormInput placeholder="Username" autoComplete="username" />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
-                    <CInputGroupText>@</CInputGroupText>
+                    <CInputGroupText>+91</CInputGroupText>
                     <CFormInput placeholder="phone" autoComplete="number" />
                   </CInputGroup>
                   <CInputGroup className="mb-3">

@@ -2,15 +2,12 @@ import React, { useState } from 'react'
 import styles from '../../Styles/modules/dashboard.module.scss'
 import {
   CFormSelect,
-  CAvatar,
   CButton,
-  CButtonGroup,
   CCard,
   CCardBody,
-  CCardFooter,
+  CFormInput,
   CCardHeader,
   CCol,
-  CProgress,
   CRow,
   CTable,
   CTableBody,
@@ -18,7 +15,6 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
-  CCollapse,
 } from '@coreui/react'
 import { CChartLine } from '@coreui/react-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils'
@@ -46,39 +42,9 @@ import {
   cilUserFemale,
 } from '@coreui/icons'
 
-import avatar1 from 'src/assets/images/avatars/1.jpg'
-import avatar2 from 'src/assets/images/avatars/2.jpg'
-import avatar3 from 'src/assets/images/avatars/3.jpg'
-import avatar4 from 'src/assets/images/avatars/4.jpg'
-import avatar5 from 'src/assets/images/avatars/5.jpg'
-import avatar6 from 'src/assets/images/avatars/6.jpg'
-
-import WidgetsBrand from '../widgets/WidgetsBrand'
 import WidgetsDropdown from '../widgets/WidgetsDropdown'
 
 const Dashboard = () => {
-  const [visibleA, setVisibleA] = useState(false)
-
-  const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
-
-  const progressExample = [
-    { title: 'Visits', value: '29.703 Users', percent: 40, color: 'success' },
-    { title: 'Unique', value: '24.093 Users', percent: 20, color: 'info' },
-    { title: 'Pageviews', value: '78.706 Views', percent: 60, color: 'warning' },
-    { title: 'New Users', value: '22.123 Users', percent: 80, color: 'danger' },
-    { title: 'Bounce Rate', value: 'Average Rate', percent: 40.15, color: 'primary' },
-  ]
-
-  const progressGroupExample1 = [
-    { title: 'Monday', value1: 34, value2: 78 },
-    { title: 'Tuesday', value1: 56, value2: 94 },
-    { title: 'Wednesday', value1: 12, value2: 67 },
-    { title: 'Thursday', value1: 43, value2: 91 },
-    { title: 'Friday', value1: 22, value2: 73 },
-    { title: 'Saturday', value1: 53, value2: 82 },
-    { title: 'Sunday', value1: 9, value2: 69 },
-  ]
-
   const cards = [
     {
       value: {
@@ -108,7 +74,124 @@ const Dashboard = () => {
     <>
       <WidgetsDropdown />
 
-      <CCard className="mb-4">
+      <CCard>
+        <CCardBody>
+          <div style={{ borderBottom: '3px solid #3c4b64', padding: '10px', fontWeight: 'bold' }}>
+            Filters
+          </div>
+        </CCardBody>
+        <CCard style={{ margin: '10px' }}>
+          <div style={{ padding: '20px' }}>
+            <CRow>
+              <CCol>
+                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Date</p>
+                <CFormInput type="date" aria-describedby="exampleFormControlInputHelpInline" />
+              </CCol>
+              <CCol>
+                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Game</p>
+                <CFormSelect
+                  aria-label="Default select example"
+                  options={[
+                    'select Game',
+                    { label: 'One', value: '1' },
+                    { label: 'Two', value: '2' },
+                    { label: 'Three', value: '3', disabled: true },
+                  ]}
+                />
+              </CCol>
+              <CCol>
+                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Session</p>
+                <CFormSelect
+                  aria-label="Default select example"
+                  options={[
+                    'Select Session',
+                    { label: 'One', value: '1' },
+                    { label: 'Two', value: '2' },
+                    { label: 'Three', value: '3', disabled: true },
+                  ]}
+                />
+              </CCol>
+              <CCol>
+                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Pana</p>
+                <CFormSelect
+                  aria-label="Default select example"
+                  options={[
+                    'Select Pana',
+                    { label: 'One', value: '1' },
+                    { label: 'Two', value: '2' },
+                    { label: 'Three', value: '3', disabled: true },
+                  ]}
+                />
+              </CCol>
+              <CCol>
+                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Digit</p>
+                <input type="text" placeholder="0000...." />
+              </CCol>
+            </CRow>
+          </div>
+          <br />
+        </CCard>
+      </CCard>
+      <br />
+      <CCard>
+        <CCardBody>
+          <div style={{ borderBottom: '3px solid #3c4b64', padding: '10px', fontWeight: 'bold' }}>
+            <CFormInput
+              type="date"
+              aria-describedby="exampleFormControlInputHelpInline"
+              style={{ width: '15%' }}
+            />
+          </div>
+        </CCardBody>
+        <CCard style={{ margin: '10px' }}>
+          <CRow>
+            <CCol xs>
+              <CCardBody>
+                <CTable
+                  align="middle"
+                  className="mb-0 border"
+                  hover
+                  responsive
+                  bordered
+                  borderColor="primary"
+                >
+                  <CTableHead color="dark">
+                    <CTableRow>
+                      <CTableHeaderCell className="text-center">
+                        <CIcon icon={cilPeople} />
+                      </CTableHeaderCell>
+                      <CTableHeaderCell>Game Name</CTableHeaderCell>
+                      <CTableHeaderCell>Result Date</CTableHeaderCell>
+                      <CTableHeaderCell className="text-center">Open Pana</CTableHeaderCell>
+                      <CTableHeaderCell>Close Pana</CTableHeaderCell>
+                      <CTableHeaderCell>Action</CTableHeaderCell>
+                    </CTableRow>
+                  </CTableHead>
+                  <CTableBody>
+                    {table.map((item, index) => (
+                      <CTableRow v-for="item in tableItems" key={index}>
+                        <CTableDataCell className="text-center">
+                          <p>1</p>
+                        </CTableDataCell>
+                        <CTableDataCell>
+                          <div></div>
+                          <div className="small text-medium-emphasis"></div>
+                        </CTableDataCell>
+
+                        <CTableDataCell></CTableDataCell>
+                        <CTableDataCell className="text-center"></CTableDataCell>
+                        <CTableDataCell></CTableDataCell>
+                      </CTableRow>
+                    ))}
+                  </CTableBody>
+                </CTable>
+              </CCardBody>
+            </CCol>
+          </CRow>
+        </CCard>
+      </CCard>
+
+      {/* <CCard className="mb-4">
         <CCardBody>
           <div style={{ borderBottom: '3px solid #3c4b64', padding: '10px', fontWeight: 'bold' }}>
             MARKIT BIT DETAILS
@@ -135,9 +218,9 @@ const Dashboard = () => {
             </div>
           </div>
         </CCard>
-      </CCard>
+      </CCard> */}
 
-      <CCard className="">
+      {/* <CCard className="">
         <CCardBody>
           <div style={{ borderBottom: '3px solid #3c4b64', padding: '10px', fontWeight: 'bold' }}>
             TOTAL BIDS ON SINGLE ANK OF DATE 16-JUNE-2023
@@ -178,11 +261,71 @@ const Dashboard = () => {
             </CRow>
           </div>
         </CCard>
-      </CCard>
+      </CCard> */}
 
-      <CRow>
+      <CRow style={{ padding: '20px' }}>
         {cards.map((item, index) => (
           <>
+            <CCol style={{ margin: '20px' }} xs={3}>
+              <CCard>
+                <CCardBody className="text-center" style={{ color: '#3c4b64' }}>
+                  <h5 style={{ fontSize: '17px', fontWeight: 'bold' }}>Total Bids</h5>
+                  <h5 style={{ fontSize: '40px' }}>{item.value.amount}</h5>
+                  <p>Total Bid Amount</p>
+                  <a style={{ backgroundColor: '#3c4b64', display: 'block', color: 'white' }}>
+                    Ank 0
+                  </a>
+                </CCardBody>
+              </CCard>
+            </CCol>
+            <CCol style={{ margin: '20px' }} xs={3}>
+              <CCard>
+                <CCardBody className="text-center" style={{ color: '#3c4b64' }}>
+                  <h5 style={{ fontSize: '17px', fontWeight: 'bold' }}>Total Bids</h5>
+                  <h5 style={{ fontSize: '40px' }}>{item.value.amount}</h5>
+                  <p>Total Bid Amount</p>
+                  <a style={{ backgroundColor: '#3c4b64', display: 'block', color: 'white' }}>
+                    Ank 0
+                  </a>
+                </CCardBody>
+              </CCard>
+            </CCol>
+            <CCol style={{ margin: '20px' }} xs={3}>
+              <CCard>
+                <CCardBody className="text-center" style={{ color: '#3c4b64' }}>
+                  <h5 style={{ fontSize: '17px', fontWeight: 'bold' }}>Total Bids</h5>
+                  <h5 style={{ fontSize: '40px' }}>{item.value.amount}</h5>
+                  <p>Total Bid Amount</p>
+                  <a style={{ backgroundColor: '#3c4b64', display: 'block', color: 'white' }}>
+                    Ank 0
+                  </a>
+                </CCardBody>
+              </CCard>
+            </CCol>
+            <CCol style={{ margin: '20px' }} xs={3}>
+              <CCard>
+                <CCardBody className="text-center" style={{ color: '#3c4b64' }}>
+                  <h5 style={{ fontSize: '17px', fontWeight: 'bold' }}>Total Bids</h5>
+                  <h5 style={{ fontSize: '40px' }}>{item.value.amount}</h5>
+                  <p>Total Bid Amount</p>
+                  <a style={{ backgroundColor: '#3c4b64', display: 'block', color: 'white' }}>
+                    Ank 0
+                  </a>
+                </CCardBody>
+              </CCard>
+            </CCol>
+            <CCol style={{ margin: '20px' }} xs={3}>
+              <CCard>
+                <CCardBody className="text-center" style={{ color: '#3c4b64' }}>
+                  <h5 style={{ fontSize: '17px', fontWeight: 'bold' }}>Total Bids</h5>
+                  <h5 style={{ fontSize: '40px' }}>{item.value.amount}</h5>
+                  <p>Total Bid Amount</p>
+                  <a style={{ backgroundColor: '#3c4b64', display: 'block', color: 'white' }}>
+                    Ank 0
+                  </a>
+                </CCardBody>
+              </CCard>
+            </CCol>
             <CCol style={{ margin: '20px' }} xs={3}>
               <CCard>
                 <CCardBody className="text-center" style={{ color: '#3c4b64' }}>
@@ -211,7 +354,7 @@ const Dashboard = () => {
                       <CIcon icon={cilPeople} />
                     </CTableHeaderCell>
                     <CTableHeaderCell>User</CTableHeaderCell>
-                    <CTableHeaderCell className="text-center"></CTableHeaderCell>
+
                     <CTableHeaderCell>Amount</CTableHeaderCell>
                     <CTableHeaderCell className="text-center">Created at</CTableHeaderCell>
                     <CTableHeaderCell> Action</CTableHeaderCell>
@@ -227,9 +370,7 @@ const Dashboard = () => {
                         <div>{item.user.name}</div>
                         <div className="small text-medium-emphasis">{item.user.number}</div>
                       </CTableDataCell>
-                      <CTableDataCell className="text-center">
-                        <CIcon size="xl" icon={item.country.flag} title={item.country.name} />
-                      </CTableDataCell>
+
                       <CTableDataCell>{item.amount.name}</CTableDataCell>
                       <CTableDataCell className="text-center">{item.credit.name}</CTableDataCell>
                       <CTableDataCell>
