@@ -2,8 +2,9 @@ import React from 'react'
 
 const profitLoss = () => {
   return (
-   <>
-   <h2>fsvadfbv</h2></>
+    <>
+      <h2>fsvadfbv</h2>
+    </>
   )
 }
 

@@ -3,7 +3,8 @@ import React from 'react'
 const notic = () => {
   return (
     <>
-    <h2>asdfbvcs</h2></>
+      <h2>asdfbvcs</h2>
+    </>
   )
 }
 

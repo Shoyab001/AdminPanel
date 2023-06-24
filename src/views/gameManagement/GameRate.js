@@ -3,7 +3,8 @@ import React from 'react'
 const GameRate = () => {
   return (
     <>
-    <h2>afsbavds</h2></>
+      <h2>afsbavds</h2>
+    </>
   )
 }
 

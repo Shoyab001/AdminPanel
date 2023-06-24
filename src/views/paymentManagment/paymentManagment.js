@@ -52,13 +52,13 @@ const paymentManagment = () => {
                   {table.map((item, index) => (
                     <CTableRow v-for="item in tableItems" key={index}>
                       <CTableDataCell className="text-center">
-                        <p style={{margin:'0px'}}>1</p>
+                        <p style={{ margin: '0px' }}>1</p>
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
-                        <p style={{margin:'0px'}}>{item.user.number}</p>
+                        <p style={{ margin: '0px' }}>{item.user.number}</p>
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
-                        <p style={{margin:'0px'}}>{item.user.amount}</p>
+                        <p style={{ margin: '0px' }}>{item.user.amount}</p>
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
                         <div>{item.user.requestno}</div>

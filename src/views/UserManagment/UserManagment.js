@@ -56,13 +56,13 @@ const UserManagment = () => {
           <div className="input-group mb-3">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Search for..."
               aria-label="Search for..."
               style={{ width: '400px', marginRight: '20px' }}
             />
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">
+            <span className="input-group-btn">
+              <button className="btn btn-secondary" type="button">
                 Search
               </button>
             </span>

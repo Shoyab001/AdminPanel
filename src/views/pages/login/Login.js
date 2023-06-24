@@ -74,7 +74,6 @@ const Login = () => {
     <div className=" min-vh-100 d-flex flex-row align-items-center background">
       <CContainer className="">
         <div
-          md={8}
           className="justify-content-center"
           style={{
             width: 'fit-content',
