@@ -19,28 +19,7 @@ import {
 import { CChartLine } from '@coreui/react-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils'
 import CIcon from '@coreui/icons-react'
-import {
-  cibCcAmex,
-  cibCcApplePay,
-  cibCcMastercard,
-  cibCcPaypal,
-  cibCcStripe,
-  cibCcVisa,
-  cibGoogle,
-  cibFacebook,
-  cibLinkedin,
-  cifBr,
-  cifEs,
-  cifFr,
-  cifIn,
-  cifPl,
-  cifUs,
-  cibTwitter,
-  cilCloudDownload,
-  cilPeople,
-  cilUser,
-  cilUserFemale,
-} from '@coreui/icons'
+import { cilPeople } from '@coreui/icons'
 
 import WidgetsDropdown from '../widgets/WidgetsDropdown'
 
@@ -147,14 +126,7 @@ const Dashboard = () => {
           <CRow>
             <CCol xs>
               <CCardBody>
-                <CTable
-                  align="middle"
-                  className="mb-0 border"
-                  hover
-                  responsive
-                  bordered
-                  borderColor="primary"
-                >
+                <CTable align="middle" className="mb-0 border" hover responsive bordered>
                   <CTableHead color="dark">
                     <CTableRow>
                       <CTableHeaderCell className="text-center">
@@ -347,7 +319,7 @@ const Dashboard = () => {
           <CCard className="mb-4">
             <CCardHeader>Deposit Point</CCardHeader>
             <CCardBody>
-              <CTable align="middle" className="mb-0 border" hover responsive>
+              <CTable align="middle" className="mb-0 border" hover responsive bordered>
                 <CTableHead color="light">
                   <CTableRow>
                     <CTableHeaderCell className="text-center">

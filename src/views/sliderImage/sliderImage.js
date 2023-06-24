@@ -37,18 +37,20 @@ const sliderImage = () => {
       <CCard>
         <CCardBody>
           <div style={{ borderBottom: '3px solid #3c4b64', padding: '10px', fontWeight: 'bold' }}>
-            <CButton color="primary" style={{marginBottom:'15px'}}>Add Image</CButton>
-            
+            <CButton color="primary" style={{ marginBottom: '15px' }}>
+              Add Image
+            </CButton>
+
             <div className="input-group mb-3">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Search for..."
                 aria-label="Search for..."
                 style={{ width: '400px', marginRight: '20px' }}
               />
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">
+              <span className="input-group-btn">
+                <button className="btn btn-secondary" type="button">
                   Search
                 </button>
               </span>
@@ -59,40 +61,44 @@ const sliderImage = () => {
           <CRow>
             <CCol xs>
               <CCardBody>
-                <CTable
-                  align="middle"
-                  className="mb-0 border"
-                  hover
-                  responsive
-                  bordered
-                  borderColor="primary"
-                >
+                <CTable align="middle" className="mb-0 border" hover responsive bordered>
                   <CTableHead color="dark">
                     <CTableRow>
                       <CTableHeaderCell className="text-center">
                         <CIcon icon={cilPeople} />
                       </CTableHeaderCell>
-                      <CTableHeaderCell>Game Name</CTableHeaderCell>
-                      <CTableHeaderCell>Result Date</CTableHeaderCell>
-                      <CTableHeaderCell className="text-center">Open Pana</CTableHeaderCell>
-                      <CTableHeaderCell>Close Pana</CTableHeaderCell>
+                      <CTableHeaderCell>Image</CTableHeaderCell>
+                      <CTableHeaderCell>Type</CTableHeaderCell>
                       <CTableHeaderCell>Action</CTableHeaderCell>
                     </CTableRow>
                   </CTableHead>
                   <CTableBody>
                     {table.map((item, index) => (
                       <CTableRow v-for="item in tableItems" key={index}>
-                        <CTableDataCell className="text-center">
+                        <CTableDataCell className="text-start" width="35px">
                           <p>1</p>
                         </CTableDataCell>
-                        <CTableDataCell>
-                          <div></div>
-                          <div className="small text-medium-emphasis"></div>
+                        <CTableDataCell width="200px">
+                          <img
+                            src="https://imgv3.fotor.com/images/cover-photo-image/a-beautiful-girl-with-gray-hair-and-lucxy-neckless-generated-by-Fotor-AI.jpg"
+                            width="150px"
+                          />
                         </CTableDataCell>
 
-                        <CTableDataCell></CTableDataCell>
-                        <CTableDataCell className="text-center"></CTableDataCell>
-                        <CTableDataCell></CTableDataCell>
+                        <CTableDataCell
+                          style={{ fontSize: '30px', fontWeight: 'bold', color: 'green' }}
+                          width="300px"
+                          className="text-center"
+                        >
+                          Verified
+                        </CTableDataCell>
+                        <CTableDataCell
+                          style={{ fontSize: '30px', fontWeight: 'bold', color: 'green' }}
+                          width="300px"
+                          className="text-center"
+                        >
+                          done
+                        </CTableDataCell>
                       </CTableRow>
                     ))}
                   </CTableBody>

@@ -74,7 +74,7 @@ const UserManagment = () => {
         <CCol xs>
           <CCard className="mb-4">
             <CCardBody>
-              <CTable align="middle" className="mb-0 border" hover responsive>
+              <CTable align="middle" className="mb-0 border" hover responsive bordered>
                 <CTableHead color="light">
                   <CTableRow>
                     <CTableHeaderCell className="text-center">

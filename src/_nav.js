@@ -70,13 +70,25 @@ const _nav = [
   //   to: '/notice',
   //   icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
   // },
-  {
-    component: CNavItem,
-    name: 'Game Management',
-    to: '/gameManagement',
-    icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
-  },
 
+  {
+    component: CNavGroup,
+    name: 'Game Management',
+
+    icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Game List',
+        to: '/gameList',
+      },
+      {
+        component: CNavItem,
+        name: 'Game Rate',
+        to: '/gameRate',
+      },
+    ],
+  },
   {
     component: CNavGroup,
     name: 'User',

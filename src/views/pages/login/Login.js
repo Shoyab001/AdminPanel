@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import './styles.css'
+
 import {
   CButton,
   CCard,
@@ -14,6 +16,9 @@ import {
   CRow,
   CSpinner,
 } from '@coreui/react'
+
+import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit'
+
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import { LoginPage } from 'src/_services/auth.service'
@@ -66,92 +71,78 @@ const Login = () => {
   // console.log(InputsValue.mobile_number)
   // console.log(InputsValue.password)
   return (
-    <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
-      <CContainer>
-        <CRow className="justify-content-center">
-          <CCol md={8}>
-            <CCardGroup>
-              <CCard className="p-4">
-                <CCardBody>
-                  <CForm>
-                    <h1>Login</h1>
-                    <p className="text-medium-emphasis">Sign In to your account</p>
-                    <CInputGroup className="mb-3">
-                      <CInputGroupText>
-                        <CIcon icon={cilUser} />
-                      </CInputGroupText>
-                      <CFormInput
-                        name="mobile_number"
-                        placeholder="mobile_number"
-                        autoComplete="mobile_number"
-                        invalid={ErrorObject?.mobile_number ? true : false}
-                        onChange={(e) => {
-                          onChangeInputs(e)
-                          setErrorObject('')
-                        }}
-                      />
-                      <CFormFeedback invalid> {ErrorObject?.mobile_number}</CFormFeedback>
-                    </CInputGroup>
-                    <CInputGroup className="mb-4">
-                      <CInputGroupText>
-                        <CIcon icon={cilLockLocked} />
-                      </CInputGroupText>
-                      <CFormInput
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        autoComplete="current-password"
-                        invalid={setErrorObject?.password}
-                        onChange={(e) => {
-                          onChangeInputs(e)
-                          setErrorObject('')
-                        }}
-                      />
-                      <CFormFeedback invalid> {ErrorObject?.password}</CFormFeedback>
-                    </CInputGroup>
-                    <CRow>
-                      <CCol xs={6}>
-                        <CButton
-                          color="primary"
-                          className="px-4"
-                          onClick={(e) => {
-                            handleLogin(e)
-                          }}
-                          // disabled={IsLoading}
-                        >
-                          {' '}
-                          {/* {IsLoading && <CSpinner />} */}
-                          Login
-                        </CButton>
-                      </CCol>
-                      <CCol xs={6} className="text-right">
-                        <CButton color="link" className="px-0">
-                          Forgot password?
-                        </CButton>
-                      </CCol>
-                    </CRow>
-                  </CForm>
-                </CCardBody>
-              </CCard>
-              <CCard className="" style={{ width: '44%' }}>
-                <CCardBody className="text-center">
-                  <div>
-                    <h2>Raddy </h2>
-                    {/* <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <Link to="/register">
-                      <CButton color="primary" className="mt-3" active tabIndex={-1}>
-                        Register Now!
-                      </CButton>
-                    </Link> */}
+    <div className=" min-vh-100 d-flex flex-row align-items-center background">
+      <CContainer className="">
+        <div
+          md={8}
+          className="justify-content-center"
+          style={{
+            width: 'fit-content',
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <CCardGroup>
+            <CCard className="" style={{ width: '44%' }}>
+              <CCardBody className="text-center">
+                <div className="d-flex flex-column ms-5 mx-5" width="100px">
+                  <div className="text-center">
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                      style={{ width: '185px' }}
+                      alt="logo"
+                    />
+                    <h4 className="mt-1 mb-5 pb-1">Raddy</h4>
                   </div>
-                </CCardBody>
-              </CCard>
-            </CCardGroup>
-          </CCol>
-        </CRow>
+
+                  <p>Please login to your account</p>
+
+                  <CInputGroup className="mb-3">
+                    <CInputGroupText>
+                      <CIcon icon={cilUser} />
+                    </CInputGroupText>
+                    <CFormInput
+                      name="mobile_number"
+                      placeholder="mobile_number"
+                      autoComplete="mobile_number"
+                      invalid={ErrorObject?.mobile_number ? true : false}
+                      onChange={(e) => {
+                        onChangeInputs(e)
+                        setErrorObject('')
+                      }}
+                    />
+                    <CFormFeedback invalid> {ErrorObject?.mobile_number}</CFormFeedback>
+                  </CInputGroup>
+                  <CInputGroup className="mb-4">
+                    <CInputGroupText>
+                      <CIcon icon={cilLockLocked} />
+                    </CInputGroupText>
+                    <CFormInput
+                      type="password"
+                      name="password"
+                      placeholder="password"
+                      autoComplete="current-password"
+                      invalid={setErrorObject?.password}
+                      onChange={(e) => {
+                        onChangeInputs(e)
+                        setErrorObject('')
+                      }}
+                    />
+                    <CFormFeedback invalid> {ErrorObject?.password}</CFormFeedback>
+                  </CInputGroup>
+
+                  <div className="text-center pt-1 mb-5 pb-1">
+                    <CButton className="mb-4 w-100 gradient-custom-2">Sign in</CButton>
+                    <a className="text-muted" href="#!">
+                      Forgot password?
+                    </a>
+                  </div>
+                </div>
+              </CCardBody>
+            </CCard>
+          </CCardGroup>
+        </div>
       </CContainer>
     </div>
   )

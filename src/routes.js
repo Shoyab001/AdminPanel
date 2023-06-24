@@ -11,7 +11,8 @@ const BetFilter = React.lazy(() => import('./views/bitFilter/bitFilter'))
 const ProfitLoss = React.lazy(() => import('./views/profitLoss/profitLoss'))
 const Winning = React.lazy(() => import('./views/winning/winning'))
 const Notice = React.lazy(() => import('./views/notic/notic'))
-const GameManagement = React.lazy(() => import('./views/gameManagement/gamemanagement'))
+const GameList = React.lazy(() => import('./views/gameManagement/gameList'))
+const GameRate = React.lazy(() => import('./views/gameManagement/GameRate'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -26,7 +27,8 @@ const routes = [
   { path: '/profitLoss', name: 'Profit Loss', element: ProfitLoss },
   { path: '/winning', name: 'Winning', element: Winning },
   { path: '/notice', name: 'Notice', element: Notice },
-  { path: '/gameManagement', name: 'Game Management', element: GameManagement },
+  { path: '/gameList', name: 'Game List', element: GameList },
+  { path: '/gameRate', name: 'Game Rate', element: GameRate },
 ]
 
 export default routes
