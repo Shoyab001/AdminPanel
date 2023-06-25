@@ -25,6 +25,7 @@ const AppHeader = () => {
 
   const user = JSON.parse(localStorage.getItem('user-info'))
   const navigate = useNavigate()
+  
   function Logout() {
     localStorage.clear()
     navigate('/login')

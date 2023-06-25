@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   CFormSelect,
   CAvatar,
@@ -20,12 +21,18 @@ import {
   CCollapse,
   CFormLabel,
   CForm,
+  CNavLink,
 } from '@coreui/react'
+
 import { CChartLine } from '@coreui/react-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils'
 import CIcon from '@coreui/icons-react'
 import { cilPeople } from '@coreui/icons'
 import { CFormInput } from '@coreui/bootstrap-react'
+import { Link } from 'react-router-dom'
+import { Button } from '@coreui/coreui'
+
+Button
 
 const table = [
   {
@@ -41,17 +48,18 @@ const table = [
 ]
 
 const UserManagment = () => {
+  const navigate = useNavigate()
+  function unapproved() {
+    navigate('/unapproved')
+  }
   return (
     <>
       <CForm className="row g-3">
         <CCol xs="auto">
-          <CButton
-            style={{ marginBottom: '20px' }}
-            component="input"
-            type="button"
-            color="primary"
-            value="Un-approved Users List"
-          />
+          <CNavLink onClick={unapproved}>
+            <CButton color="primary">Un-approved Users List</CButton>
+          </CNavLink>
+
           <p>Search with Name, Mobile number, Email, Wallet Balance OR Referral Code</p>
           <div className="input-group mb-3">
             <input

@@ -132,7 +132,17 @@ const Login = () => {
                   </CInputGroup>
 
                   <div className="text-center pt-1 mb-5 pb-1">
-                    <CButton className="mb-4 w-100 gradient-custom-2">Sign in</CButton>
+                    <CButton
+                      className="mb-4 w-100 gradient-custom-2"
+                      onClick={(e) => {
+                        handleLogin(e)
+                      }}
+                      disabled={IsLoading}
+                    >
+                      {' '}
+                      {IsLoading && <CSpinner />}
+                      Sign in
+                    </CButton>
                     <a className="text-muted" href="#!">
                       Forgot password?
                     </a>
