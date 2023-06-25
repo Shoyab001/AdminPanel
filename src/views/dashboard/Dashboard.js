@@ -238,7 +238,7 @@ const Dashboard = () => {
       <CRow style={{ padding: '20px' }}>
         {cards.map((item, index) => (
           <>
-            <CCol style={{ margin: '20px' }} xs={3}>
+            {/* <CCol style={{ margin: '20px' }} xs={3}>
               <CCard>
                 <CCardBody className="text-center" style={{ color: '#3c4b64' }}>
                   <h5 style={{ fontSize: '17px', fontWeight: 'bold' }}>Total Bids</h5>
@@ -297,7 +297,7 @@ const Dashboard = () => {
                   </a>
                 </CCardBody>
               </CCard>
-            </CCol>
+            </CCol> */}
             <CCol style={{ margin: '20px' }} xs={3}>
               <CCard>
                 <CCardBody className="text-center" style={{ color: '#3c4b64' }}>

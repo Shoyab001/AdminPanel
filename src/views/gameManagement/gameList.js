@@ -27,6 +27,7 @@ import { getStyle, hexToRgba } from '@coreui/utils'
 import CIcon from '@coreui/icons-react'
 import { cilPeople } from '@coreui/icons'
 import { CFormInput } from '@coreui/bootstrap-react'
+import axios from 'axios'
 
 const gameList = () => {
   const table = [
@@ -112,7 +113,9 @@ const gameList = () => {
                         <CButton color="success">Edit Game</CButton>
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
-                        <CButton color="danger">Delete</CButton>
+                        <CButton color="danger" className="delete" type="button">
+                          Delete
+                        </CButton>
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
                         <CButton color="danger">Rates</CButton>
