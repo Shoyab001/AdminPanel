@@ -51,6 +51,7 @@ const UserManagment = () => {
             type="button"
             color="primary"
             value="Un-approved Users List"
+            href="/unapproved"
           />
           <p>Search with Name, Mobile number, Email, Wallet Balance OR Referral Code</p>
           <div className="input-group mb-3">
