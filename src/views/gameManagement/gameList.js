@@ -97,65 +97,6 @@ const gameList = () => {
           </CCard>
         </CCol>
       </CRow>
-      <div>
-        <h3>Game Rates</h3>
-      </div>
-      <CCard>
-        <CCardHeader style={{ backgroundColor: '#3c4b64', color: 'white' }}>
-          <h5>Game Rates</h5>
-        </CCardHeader>
-        <CForm className="row gx-3 gy-2 p-3 align-items-center">
-          <CCol lg={6} sm={3}>
-            <CFormLabel htmlFor="specificSizeInputNumber">
-              <h5>Single Digit</h5>
-              <h6>Value:</h6>
-            </CFormLabel>
-            <CFormInput id="specificSizeInputNumber" placeholder="+91" />
-          </CCol>
-          <CCol lg={6} sm={3}>
-            <CFormLabel htmlFor="specificSizeInputNumber">
-              <h5>Jodi Digit</h5>
-              <h6>Value:</h6>
-            </CFormLabel>
-            <CFormInput id="specificSizeInputNumber" placeholder="+91" />
-          </CCol>
-          <CCol lg={6} sm={3}>
-            <CFormLabel htmlFor="specificSizeInputNumber">
-              <h5>Single Pana</h5>
-              <h6>Value:</h6>
-            </CFormLabel>
-            <CFormInput id="specificSizeInputNumber" placeholder="+91" />
-          </CCol>
-          <CCol lg={6} sm={3}>
-            <CFormLabel htmlFor="specificSizeInputNumber">
-              <h5>Double Pana</h5>
-              <h6>Value:</h6>
-            </CFormLabel>
-            <CFormInput id="specificSizeInputNumber" placeholder="+91" />
-          </CCol>
-          <CCol lg={6} sm={3}>
-            <CFormLabel htmlFor="specificSizeInputNumber">
-              <h5>Triple Pana</h5>
-              <h6>Value:</h6>
-            </CFormLabel>
-            <CFormInput id="specificSizeInputNumber" placeholder="+91" />
-          </CCol>
-          <CCol lg={6} sm={3}>
-            <CFormLabel htmlFor="specificSizeInputNumber">
-              <h5>Half Sangam</h5>
-              <h6>Value:</h6>
-            </CFormLabel>
-            <CFormInput id="specificSizeInputNumber" placeholder="10000" />
-          </CCol>
-          <CCol lg={6} sm={3}>
-            <CFormLabel htmlFor="specificSizeInputNumber">
-              <h5>Full Sangam</h5>
-              <h6>Value:</h6>
-            </CFormLabel>
-            <CFormInput id="specificSizeInputNumber" placeholder="100000" />
-          </CCol>
-        </CForm>
-      </CCard>
     </>
   )
 }
