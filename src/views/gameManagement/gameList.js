@@ -33,16 +33,11 @@ const gameList = () => {
     {
       user: {
         name: 'Yiorgos Avraamu',
-        number: '01572 00000',
+        opentime: '8:50pm',
+        closetime: '10:50pm',
         new: true,
-        registered: 'date',
+        day: 'Sunday',
       },
-
-      country: { name: 'USA' },
-
-      credit: { name: '10000 INR' },
-
-      amount: { name: '5000 INR' },
     },
   ]
   return (
@@ -91,7 +86,40 @@ const gameList = () => {
                     <CTableHeaderCell className="text-center">Rate</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
-                <CTableBody></CTableBody>
+                <CTableBody>
+                  {table.map((item, index) => (
+                    <CTableRow v-for="item in tableItems" key={index}>
+                      <CTableDataCell className="text-center">
+                        <p>1</p>
+                      </CTableDataCell>
+                      <CTableDataCell className="text-center">
+                        <p>{item.user.name}</p>
+                      </CTableDataCell>
+                      <CTableDataCell className="text-center">
+                        <div>{item.user.opentime}</div>
+                      </CTableDataCell>
+                      <CTableDataCell className="text-center">
+                        <div>{item.user.closetime}</div>
+                      </CTableDataCell>
+                      <CTableDataCell className="text-center">
+                        <div>{item.user.day}</div>
+                      </CTableDataCell>{' '}
+                      <CTableDataCell className="text-center">
+                        <CButton color="success">Yes</CButton>
+                      </CTableDataCell>
+                      <CTableDataCell className="text-center">
+                        {' '}
+                        <CButton color="success">Edit Game</CButton>
+                      </CTableDataCell>
+                      <CTableDataCell className="text-center">
+                        <CButton color="danger">Delete</CButton>
+                      </CTableDataCell>
+                      <CTableDataCell className="text-center">
+                        <CButton color="danger">Rates</CButton>
+                      </CTableDataCell>
+                    </CTableRow>
+                  ))}
+                </CTableBody>
               </CTable>
             </CCardBody>
           </CCard>
