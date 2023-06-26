@@ -1,8 +1,8 @@
 import './styles.css'
-import React, {  useEffect } from 'react'
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import { useState } from "react";
+import { useState } from 'react'
 import {
   CButton,
   CCard,
@@ -32,14 +32,15 @@ const Login = () => {
   const dispatch = useDispatch()
   const [InputsValue, setInputsValue] = useState({})
   const [ErrorObject, setErrorObject] = useState({
-    mobile_number: "",
-    password: "",
+    mobile_number: '',
+    password: '',
   })
 
   const history = useNavigate()
+
   useEffect(() => {
     if (localStorage.getItem('user-info')) {
-      history('/dashboard')
+      history('/')
     }
   }, [])
   const onChangeInputs = (e) => {
@@ -58,16 +59,16 @@ const Login = () => {
     }
     Loginapi(InputsValue).then((response) => {
       // setIsLoding(false)
-      console.log(response)
-      if (response?.data?.status) {
+      console.log(response, 'response')
+      if (response?.success) {
         toast.success('login success')
-        let data = response?.data?.data
-        let users = response?.data?.data
-        localStorage.setItem('role', users?._id)
-        localStorage.setItem('token_key', data.token)
-        localStorage.setItem('users', JSON.stringify(data))
-        dispatch({ type: 'login-success' })
-        console.log(result);
+        let data = response?.data
+        let users = response?.data
+        sessionStorage.setItem('role', users?._id)
+        sessionStorage.setItem('token_key', data?.token)
+        sessionStorage.setItem('users', JSON.stringify(users))
+        // dispatch({ type: 'login-success' })
+        // // console.log(result)
         history('/')
       } else {
         setErrorObject((prev) => ({ ...prev, password: 'Invalid mobile_number or password.' }))
@@ -78,7 +79,7 @@ const Login = () => {
   // console.log(InputsValue.password)
   return (
     <div className=" min-vh-100 d-flex flex-row align-items-center background">
-      <CContainer className="">
+      <CContainer>
         <div
           className="justify-content-center"
           style={{
@@ -143,10 +144,8 @@ const Login = () => {
                       onClick={(e) => {
                         handleLogin(e)
                       }}
-                      disabled={IsLoading}
                     >
                       {' '}
-                      {IsLoading && <CSpinner />}
                       Sign in
                     </CButton>
                     <a className="text-muted" href="#!">

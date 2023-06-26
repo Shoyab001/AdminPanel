@@ -1,17 +1,9 @@
 import React from 'react'
-import {
-  CRow,
-  CCol,
-  CDropdown,
-  CDropdownMenu,
-  CDropdownItem,
-  CDropdownToggle,
-  CWidgetStatsA,
-} from '@coreui/react'
+import { CRow, CCol, CWidgetStatsA } from '@coreui/react'
 import { getStyle } from '@coreui/utils'
 import { CChartBar, CChartLine } from '@coreui/react-chartjs'
 import CIcon from '@coreui/icons-react'
-import { cilArrowBottom, cilArrowTop, cilOptions } from '@coreui/icons'
+import { cilArrowTop } from '@coreui/icons'
 
 const WidgetsDropdown = () => {
   return (
@@ -20,21 +12,54 @@ const WidgetsDropdown = () => {
         <CWidgetStatsA
           className="mb-4"
           color="primary"
-          value={<>0 </>}
-          title="Total Users"
+          value={
+            <>
+              50{' '}
+              {/* <span className="fs-6 fw-normal">
+                (-12.4% <CIcon icon={cilArrowBottom} />)
+              </span> */}
+            </>
+          }
+          title="Total user"
+          // action={
+          //   <CDropdown alignment="end">
+          //     <CDropdownToggle color="transparent" caret={false} className="p-0">
+          //       <CIcon icon={cilOptions} className="text-high-emphasis-inverse" />
+          //     </CDropdownToggle>
+          //     <CDropdownMenu>
+          //       <CDropdownItem>Action</CDropdownItem>
+          //       <CDropdownItem>Another action</CDropdownItem>
+          //       <CDropdownItem>Something else here...</CDropdownItem>
+          //       <CDropdownItem disabled>Disabled action</CDropdownItem>
+          //     </CDropdownMenu>
+          //   </CDropdown>
+          // }
           chart={
             <CChartLine
               className="mt-3 mx-3"
               style={{ height: '70px' }}
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: [
+                  'January',
+                  'February',
+                  'March',
+                  'April',
+                  'May',
+                  'June',
+                  'July',
+                  'August',
+                  'September',
+                  'October',
+                  'November',
+                  'December',
+                ],
                 datasets: [
                   {
                     label: 'My First dataset',
                     backgroundColor: 'transparent',
                     borderColor: 'rgba(255,255,255,.55)',
                     pointBackgroundColor: getStyle('--cui-primary'),
-                    data: [65, 59, 84, 84, 51, 55, 40],
+                    data: [65, 59, 84, 84, 51, 55, 40, 77, 22, 33, 33, 22],
                   },
                 ],
               }}
@@ -87,8 +112,28 @@ const WidgetsDropdown = () => {
         <CWidgetStatsA
           className="mb-4"
           color="info"
-          value={<>0 </>}
-          title="Un-Approved Users"
+          value={
+            <>
+              $6.200{' '}
+              {/* <span className="fs-6 fw-normal">
+                (40.9% <CIcon icon={cilArrowTop} />)
+              </span> */}
+            </>
+          }
+          title="Un-Approved User"
+          // action={
+          //   <CDropdown alignment="end">
+          //     <CDropdownToggle color="transparent" caret={false} className="p-0">
+          //       <CIcon icon={cilOptions} className="text-high-emphasis-inverse" />
+          //     </CDropdownToggle>
+          //     <CDropdownMenu>
+          //       <CDropdownItem>Action</CDropdownItem>
+          //       <CDropdownItem>Another action</CDropdownItem>
+          //       <CDropdownItem>Something else here...</CDropdownItem>
+          //       <CDropdownItem disabled>Disabled action</CDropdownItem>
+          //     </CDropdownMenu>
+          //   </CDropdown>
+          // }
           chart={
             <CChartLine
               className="mt-3 mx-3"
@@ -153,48 +198,88 @@ const WidgetsDropdown = () => {
         <CWidgetStatsA
           className="mb-4"
           color="warning"
-          value={<>0 </>}
+          value={
+            <>
+              6{' '}
+              <span className="fs-6 fw-normal">
+                (84.7% <CIcon icon={cilArrowTop} />)
+              </span>
+            </>
+          }
           title="Total Bid Amount"
+          // action={
+          //   <CDropdown alignment="end">
+          //     <CDropdownToggle color="transparent" caret={false} className="p-0">
+          //       <CIcon icon={cilOptions} className="text-high-emphasis-inverse" />
+          //     </CDropdownToggle>
+          //     <CDropdownMenu>
+          //       <CDropdownItem>Action</CDropdownItem>
+          //       <CDropdownItem>Another action</CDropdownItem>
+          //       <CDropdownItem>Something else here...</CDropdownItem>
+          //       <CDropdownItem disabled>Disabled action</CDropdownItem>
+          //     </CDropdownMenu>
+          //   </CDropdown>
+          // }
+
           chart={
-            <CChartLine
-              className="mt-3"
+            <CChartBar
+              className="mt-3 mx-3"
               style={{ height: '70px' }}
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: [
+                  'January',
+                  'February',
+                  'March',
+                  'April',
+                  'May',
+                  'June',
+                  'July',
+                  'August',
+                  'September',
+                  'October',
+                  'November',
+                  'December',
+                  'January',
+                  'February',
+                  'March',
+                  'April',
+                ],
                 datasets: [
                   {
                     label: 'My First dataset',
                     backgroundColor: 'rgba(255,255,255,.2)',
                     borderColor: 'rgba(255,255,255,.55)',
-                    data: [78, 81, 80, 45, 34, 12, 40],
-                    fill: true,
+                    data: [78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98, 34, 84, 67, 82],
+                    barPercentage: 0.6,
                   },
                 ],
               }}
               options={{
+                maintainAspectRatio: false,
                 plugins: {
                   legend: {
                     display: false,
                   },
                 },
-                maintainAspectRatio: false,
                 scales: {
                   x: {
-                    display: false,
+                    grid: {
+                      display: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      display: false,
+                    },
                   },
                   y: {
-                    display: false,
-                  },
-                },
-                elements: {
-                  line: {
-                    borderWidth: 2,
-                    tension: 0.4,
-                  },
-                  point: {
-                    radius: 0,
-                    hitRadius: 10,
-                    hoverRadius: 4,
+                    grid: {
+                      display: false,
+                      drawBorder: false,
+                      drawTicks: false,
+                    },
+                    ticks: {
+                      display: false,
+                    },
                   },
                 },
               }}
