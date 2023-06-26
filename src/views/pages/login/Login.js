@@ -1,8 +1,7 @@
 import './styles.css'
-import React, {  useEffect } from 'react'
-import { useNavigate } from "react-router-dom";
-
-import { useState } from "react";
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import {
   CButton,
   CCard,
@@ -32,8 +31,8 @@ const Login = () => {
   const dispatch = useDispatch()
   const [InputsValue, setInputsValue] = useState({})
   const [ErrorObject, setErrorObject] = useState({
-    mobile_number: "",
-    password: "",
+    mobile_number: '',
+    password: '',
   })
 
   const history = useNavigate()
@@ -67,7 +66,7 @@ const Login = () => {
         localStorage.setItem('token_key', data.token)
         localStorage.setItem('users', JSON.stringify(data))
         dispatch({ type: 'login-success' })
-        console.log(result);
+        // console.log(result)
         history('/')
       } else {
         setErrorObject((prev) => ({ ...prev, password: 'Invalid mobile_number or password.' }))

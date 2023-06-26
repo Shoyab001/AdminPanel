@@ -32,8 +32,6 @@ import { CFormInput } from '@coreui/bootstrap-react'
 import { Link } from 'react-router-dom'
 import { Button } from '@coreui/coreui'
 
-Button
-
 const table = [
   {
     user: {
