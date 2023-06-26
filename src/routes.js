@@ -2,6 +2,7 @@ import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const UserManagment = React.lazy(() => import('./views/UserManagment/UserManagment'))
+const UnApproved = React.lazy(() => import('./views/UserManagment/unapproved'))
 const DeclareResult = React.lazy(() => import('./views/DeclareResult/DeclareResult'))
 const WalletManagment = React.lazy(() => import('./views/walletManagment/walletManagment'))
 const ContactSetting = React.lazy(() => import('./views/contactSetting/contactSetting'))
@@ -18,6 +19,7 @@ const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/UserManagment', name: 'UserManagment', element: UserManagment },
+  { path: '/unapproved', name: 'UnApproved', element: UnApproved },
   { path: '/walletManagment', name: 'Wallet Managment', element: WalletManagment },
   { path: '/declareResult', name: 'Declare Result', element: DeclareResult },
   { path: '/contactSetting', name: 'Contact Setting', element: ContactSetting },

@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
 import './styles.css'
+import React, {  useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
 
+import { useState } from "react";
 import {
   CButton,
   CCard,
@@ -21,9 +23,8 @@ import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit
 
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
-import { LoginPage } from 'src/_services/auth.service'
+import { Loginapi } from '../../../_services/auth.service'
 import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
 import Validation from './validation'
 import { useDispatch } from 'react-redux'
 
@@ -31,12 +32,16 @@ const Login = () => {
   const dispatch = useDispatch()
   const [InputsValue, setInputsValue] = useState({})
   const [ErrorObject, setErrorObject] = useState({
-    mobile_number: '',
-    password: '',
+    mobile_number: "",
+    password: "",
   })
 
   const history = useNavigate()
-
+  useEffect(() => {
+    if (localStorage.getItem('user-info')) {
+      history('/dashboard')
+    }
+  }, [])
   const onChangeInputs = (e) => {
     setErrorObject({})
     setInputsValue((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -51,7 +56,7 @@ const Login = () => {
     if (ErrorObject.mobile_number || ErrorObject.password) {
       return
     }
-    LoginPage(InputsValue).then((response) => {
+    Loginapi(InputsValue).then((response) => {
       // setIsLoding(false)
       console.log(response)
       if (response?.data?.status) {
@@ -62,7 +67,8 @@ const Login = () => {
         localStorage.setItem('token_key', data.token)
         localStorage.setItem('users', JSON.stringify(data))
         dispatch({ type: 'login-success' })
-        history('/dashboard')
+        console.log(result);
+        history('/')
       } else {
         setErrorObject((prev) => ({ ...prev, password: 'Invalid mobile_number or password.' }))
       }
@@ -132,7 +138,17 @@ const Login = () => {
                   </CInputGroup>
 
                   <div className="text-center pt-1 mb-5 pb-1">
-                    <CButton className="mb-4 w-100 gradient-custom-2">Sign in</CButton>
+                    <CButton
+                      className="mb-4 w-100 gradient-custom-2"
+                      onClick={(e) => {
+                        handleLogin(e)
+                      }}
+                      disabled={IsLoading}
+                    >
+                      {' '}
+                      {IsLoading && <CSpinner />}
+                      Sign in
+                    </CButton>
                     <a className="text-muted" href="#!">
                       Forgot password?
                     </a>
