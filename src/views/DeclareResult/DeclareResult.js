@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { cilPeople } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
 import { Table } from 'react-bootstrap'
+import { declareresult } from 'src/_services/profile.service'
 import {
   CFormSelect,
   CButton,

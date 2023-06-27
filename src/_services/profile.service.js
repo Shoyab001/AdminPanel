@@ -25,10 +25,20 @@ export async function list(content) {
 export async function getmastertablelist(body) {
   let options = {
     url: apiPath.BASE_URL + apiPath.MasterTableList,
-    method: "POST",
+    method: 'POST',
     data: body,
-  };
-  const res = await makeTheApiCall(options);
+  }
+  const res = await makeTheApiCall(options)
 
-  return res.data;
+  return res.data
+}
+export async function declareresult(body) {
+  let options = {
+    url: apiPath.BASE_URL + apiPath.DeclareresultTableList,
+    method: 'POST',
+    data: body,
+  }
+  const res = await makeTheApiCall(options)
+
+  return res.data
 }

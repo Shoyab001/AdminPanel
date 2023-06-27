@@ -23,38 +23,45 @@ import CIcon from '@coreui/icons-react'
 import { cilPeople } from '@coreui/icons'
 
 import WidgetsDropdown from '../widgets/WidgetsDropdown'
-import { getTypeDropdown, list, getmastertablelist } from 'src/_services/profile.service'
+import {
+  getTypeDropdown,
+  declareresult,
+  list,
+  getmastertablelist,
+} from 'src/_services/profile.service'
 import { Form } from 'react-router-dom'
 
 const Dashboard = () => {
-  const [RoleList, setRoleList] = useState([])
   const [ErrorObject, setErrorObject] = useState({})
-  const [TableLists, setTableLists] = useState({})
+  const [TableLists, setTableLists] = useState([])
   const [InputsValue, setInputsValue] = useState({})
 
   const [FilterData, setFilterData] = useState({
     role: '648ab62a2a9cdc3b38da1f9c',
   })
+  const [resultlist, setresultlist] = useState([])
 
-  const fetchApiData = () => {
-    list({
+  useEffect(() => {
+    declareresult().then((response) => {
+      console.log(response, 'response')
+      if (response?.success) {
+        setresultlist(response?.data?.records)
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    getmastertablelist({
       length: 100,
       filter: {
         type: '648ab62a2a9cdc3b38da1f9c',
       },
     }).then((response) => {
-      console.log(response)
-      if (response.success) {
-        let data = response.data.data
-        setTableLists(data.records.records)
-        setRoleList(data.recordsTotal)
-        console.log(response)
+      if (response?.success) {
+        setTableLists(response?.data?.records)
       }
     })
-  }
-  useEffect(() => {
-    fetchApiData()
-  }, [FilterData, 0])
+  }, [])
 
   const onChangeFilter = (e) => {
     setFilterData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -116,13 +123,16 @@ const Dashboard = () => {
                   onChange={onChangeInputs}
                 >
                   <option>Choose role</option>
-                  {RoleList?.map((item, index) => {
-                    return (
-                      <option key={index} value={item._id}>
-                        {item.name}{' '}
-                      </option>
-                    )
-                  })}{' '}
+                  {TableLists &&
+                    TableLists?.map((items, index) => {
+                      return (
+                        <>
+                          <option value={items._id} key={index}>
+                            {items.name}
+                          </option>
+                        </>
+                      )
+                    })}{' '}
                 </CFormSelect>
               </CCol>
               <CCol>
@@ -179,21 +189,23 @@ const Dashboard = () => {
                     </CTableRow>
                   </CTableHead>
                   <CTableBody>
-                    {/* {TableLists?.map((item, index) => (
+                    {resultlist?.map((item, index) => (
                       <CTableRow v-for="item in tableItems" key={index}>
                         <CTableDataCell className="text-center">
-                          <p>1</p>
+                          <p>{index}</p>
                         </CTableDataCell>
                         <CTableDataCell>
-                          <div>{item?.full_name}</div>
-                          <div className="small text-medium-emphasis"></div>
+                          <div>{item.market_name.name}</div>
+                        </CTableDataCell>
+                        <CTableDataCell>
+                          <div className="small text-medium-emphasis">{item.result_date}</div>
                         </CTableDataCell>
 
                         <CTableDataCell></CTableDataCell>
                         <CTableDataCell className="text-center"></CTableDataCell>
                         <CTableDataCell></CTableDataCell>
                       </CTableRow>
-                    ))} */}
+                    ))}
                   </CTableBody>
                 </CTable>
               </CCardBody>
