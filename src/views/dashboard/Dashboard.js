@@ -200,7 +200,6 @@ const Dashboard = () => {
                         <CTableDataCell>
                           <div className="small text-medium-emphasis">{item.result_date}</div>
                         </CTableDataCell>
-
                         <CTableDataCell></CTableDataCell>
                         <CTableDataCell className="text-center"></CTableDataCell>
                         <CTableDataCell></CTableDataCell>

@@ -33,7 +33,6 @@ const Register = () => {
 
   const [Signupdetail, setSignupdetails] = useState({})
   const [ErrorObject, setErrorObject] = useState({})
- 
 
   useEffect(() => {
     if (id == '640ec4c5941ddd210c4dae93') {
@@ -135,7 +134,7 @@ const Register = () => {
                       placeholder="Password"
                       autoComplete="new-password"
                       onChange={(e) => {
-                        onChangeInput(e);
+                        onChangeInput(e)
                       }}
                     />
                   </CInputGroup>
@@ -149,7 +148,7 @@ const Register = () => {
                       placeholder="Repeat password"
                       autoComplete="new-password"
                       onChange={(e) => {
-                        onChangeInput(e);
+                        onChangeInput(e)
                       }}
                     />
                   </CInputGroup>
