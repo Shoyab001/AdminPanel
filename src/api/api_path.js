@@ -11,6 +11,13 @@ let pathApiObj = {
   LOGIN: 'auth/login',
   SIGNUP: 'auth/signup',
 
+  //game dropdown
+  TypeDropdown: 'master-table/dropdown',
+  // USERS_LIST: 'master-table/list',
+
+  MasterTableList: "master-table/list",
+
+
   //roles
   // ADD_ROLES: 'admin/roles/add',
   // ROLE_LIST: 'admin/roles/list',

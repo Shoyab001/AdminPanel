@@ -59,12 +59,13 @@ const UserManagment = () => {
             component="input"
             type="button"
             color="primary"
-            value="Un-approved Users List"
-            href="/unapproved"
-          />
+            onClick={unapproved}
+          >
+            Un-approved Users List
+          </CButton>
           <p>Search with Name, Mobile number, Email, Wallet Balance OR Referral Code</p>
           <div className="input-group mb-3">
-            <input
+            <CFormInput
               type="text"
               className="form-control"
               placeholder="Search for..."
