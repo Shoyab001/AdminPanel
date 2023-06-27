@@ -1,7 +1,6 @@
 import './styles.css'
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-<<<<<<< HEAD
 =======
 
 >>>>>>> 4062af9cac5b19b3a230cf9aee12b108c1df2bbc

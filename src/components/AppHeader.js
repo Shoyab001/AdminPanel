@@ -25,7 +25,7 @@ const AppHeader = () => {
 
   const user = JSON.parse(localStorage.getItem('user-info'))
   const navigate = useNavigate()
-  
+
   function Logout() {
     console.log('show something')
     sessionStorage.clear()
@@ -35,7 +35,7 @@ const AppHeader = () => {
 
   return (
     <>
-      {notLoggedIn() && Logout()}
+      {/* {notLoggedIn() && Logout()} */}
       <CHeader position="sticky" className="mb-4">
         <CContainer fluid>
           <CHeaderToggler
