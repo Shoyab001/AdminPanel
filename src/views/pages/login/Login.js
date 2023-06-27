@@ -1,7 +1,9 @@
 import './styles.css'
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+// =======
 
+// >>>>>>> 4062af9cac5b19b3a230cf9aee12b108c1df2bbc
 import { useState } from 'react'
 import {
   CButton,
@@ -62,14 +64,24 @@ const Login = () => {
       console.log(response, 'response')
       if (response?.success) {
         toast.success('login success')
-        let data = response?.data
-        let users = response?.data
-        sessionStorage.setItem('role', users?._id)
-        sessionStorage.setItem('token_key', data?.token)
-        sessionStorage.setItem('users', JSON.stringify(users))
-        // dispatch({ type: 'login-success' })
-        // // console.log(result)
-        history('/')
+        // <<<<<<< HEAD
+        //         let data = response?.data?.data
+        //         let users = response?.data?.data
+        //         localStorage.setItem('role', users?._id)
+        //         localStorage.setItem('token_key', data.token)
+        //         localStorage.setItem('users', JSON.stringify(data))
+        //         dispatch({ type: 'login-success' })
+        //         // console.log(result)
+        // =======
+        //         let data = response?.data
+        //         let users = response?.data
+        //         sessionStorage.setItem('role', users?._id)
+        //         sessionStorage.setItem('token_key', data?.token)
+        //         sessionStorage.setItem('users', JSON.stringify(users))
+        //         // dispatch({ type: 'login-success' })
+        //         // // console.log(result)
+        // >>>>>>> 4062af9cac5b19b3a230cf9aee12b108c1df2bbc
+        //         history('/')
       } else {
         setErrorObject((prev) => ({ ...prev, password: 'Invalid mobile_number or password.' }))
       }

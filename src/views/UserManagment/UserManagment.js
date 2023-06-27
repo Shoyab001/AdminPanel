@@ -32,8 +32,6 @@ import { CFormInput } from '@coreui/bootstrap-react'
 import { Link } from 'react-router-dom'
 import { Button } from '@coreui/coreui'
 
-Button
-
 const table = [
   {
     user: {
@@ -56,10 +54,14 @@ const UserManagment = () => {
     <>
       <CForm className="row g-3">
         <CCol xs="auto">
-          <CNavLink onClick={unapproved}>
-            <CButton color="primary">Un-approved Users List</CButton>
-          </CNavLink>
-
+          <CButton
+            style={{ marginBottom: '20px' }}
+            component="input"
+            type="button"
+            color="primary"
+            value="Un-approved Users List"
+            href="/unapproved"
+          />
           <p>Search with Name, Mobile number, Email, Wallet Balance OR Referral Code</p>
           <div className="input-group mb-3">
             <input
