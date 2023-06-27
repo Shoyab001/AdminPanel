@@ -179,7 +179,7 @@ const Dashboard = () => {
                     </CTableRow>
                   </CTableHead>
                   <CTableBody>
-                    {/* {TableLists?.map((item, index) => (
+                    {table?.map((item, index) => (
                       <CTableRow v-for="item in tableItems" key={index}>
                         <CTableDataCell className="text-center">
                           <p>1</p>
@@ -188,12 +188,11 @@ const Dashboard = () => {
                           <div>{item?.full_name}</div>
                           <div className="small text-medium-emphasis"></div>
                         </CTableDataCell>
-
                         <CTableDataCell></CTableDataCell>
                         <CTableDataCell className="text-center"></CTableDataCell>
                         <CTableDataCell></CTableDataCell>
                       </CTableRow>
-                    ))} */}
+                    ))}
                   </CTableBody>
                 </CTable>
               </CCardBody>

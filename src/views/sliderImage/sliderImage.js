@@ -1,4 +1,6 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import {
   CButton,
   CCard,
@@ -16,6 +18,10 @@ import CIcon from '@coreui/icons-react'
 import { cilPeople } from '@coreui/icons'
 
 const sliderImage = () => {
+  const navigate = useNavigate()
+  function add() {
+    navigate('/addimage')
+  }
   const table = [
     {
       user: {
@@ -37,7 +43,7 @@ const sliderImage = () => {
       <CCard>
         <CCardBody>
           <div style={{ borderBottom: '3px solid #3c4b64', padding: '10px', fontWeight: 'bold' }}>
-            <CButton color="primary" style={{ marginBottom: '15px' }}>
+            <CButton type="button" color="primary" style={{ marginBottom: '15px' }} onClick={add}>
               Add Image
             </CButton>
 
