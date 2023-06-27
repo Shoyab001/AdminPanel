@@ -56,7 +56,6 @@ const UserManagment = () => {
         <CCol xs="auto">
           <CButton
             style={{ marginBottom: '20px' }}
-            component="input"
             type="button"
             color="primary"
             onClick={unapproved}

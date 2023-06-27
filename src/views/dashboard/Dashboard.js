@@ -47,7 +47,7 @@ const Dashboard = () => {
       if (response.success) {
         let data = response.data.data
         setTableLists(data.records.records)
-        // setTotalRecord(data.recordsTotal)
+        setRoleList(data.recordsTotal)
         console.log(response)
       }
     })
