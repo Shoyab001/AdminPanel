@@ -15,8 +15,15 @@ let pathApiObj = {
   TypeDropdown: 'master-table/dropdown',
   // USERS_LIST: 'master-table/list',
 
+  // Dashboard
   MasterTableList: 'master-table/list',
   DeclareresultTableList: 'declare-result/list',
+
+  // userManagment
+  userManagment: 'users/list',
+
+  //contactus
+  ContactUs: 'contact-us/create',
 
   //roles
   // ADD_ROLES: 'admin/roles/add',

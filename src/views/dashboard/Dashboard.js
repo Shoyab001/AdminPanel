@@ -34,12 +34,14 @@ import { Form } from 'react-router-dom'
 const Dashboard = () => {
   const [ErrorObject, setErrorObject] = useState({})
   const [TableLists, setTableLists] = useState([])
+  const [SessionLists, setSessionLists] = useState([])
   const [InputsValue, setInputsValue] = useState({})
 
-  const [FilterData, setFilterData] = useState({
-    role: '648ab62a2a9cdc3b38da1f9c',
-  })
+  // const [FilterData, setFilterData] = useState({
+  //   role: '648ab62a2a9cdc3b38da1f9c',
+  // })
   const [resultlist, setresultlist] = useState([])
+  const [depositresult, setDepositResult] = useState([])
 
   useEffect(() => {
     declareresult().then((response) => {
@@ -59,6 +61,19 @@ const Dashboard = () => {
     }).then((response) => {
       if (response?.success) {
         setTableLists(response?.data?.records)
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    getmastertablelist({
+      length: 100,
+      filter: {
+        type: '648809675115c82490f5cdf6',
+      },
+    }).then((response) => {
+      if (response?.success) {
+        setSessionLists(response?.data?.records)
       }
     })
   }, [])
@@ -118,7 +133,7 @@ const Dashboard = () => {
                 <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Game</p>
                 <CFormSelect
                   aria-label="Default select example"
-                  name="game"
+                  name="Session"
                   invalid={ErrorObject?.game}
                   onChange={onChangeInputs}
                 >
@@ -139,13 +154,22 @@ const Dashboard = () => {
                 <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Session</p>
                 <CFormSelect
                   aria-label="Default select example"
-                  options={[
-                    'Select Session',
-                    { label: 'One', value: '1' },
-                    { label: 'Two', value: '2' },
-                    { label: 'Three', value: '3', disabled: true },
-                  ]}
-                />
+                  name="game"
+                  invalid={ErrorObject?.game}
+                  onChange={onChangeInputs}
+                >
+                  <option>Choose Session</option>
+                  {SessionLists &&
+                    SessionLists?.map((items, index) => {
+                      return (
+                        <>
+                          <option value={items._id} key={index}>
+                            {items.name}
+                          </option>
+                        </>
+                      )
+                    })}{' '}
+                </CFormSelect>
               </CCol>
               <CCol>
                 <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Pana</p>
@@ -181,7 +205,7 @@ const Dashboard = () => {
                       <CTableHeaderCell className="text-center">
                         <CIcon icon={cilPeople} />
                       </CTableHeaderCell>
-                      <CTableHeaderCell>Game Name</CTableHeaderCell>
+                      <CTableHeaderCell>Market Name</CTableHeaderCell>
                       <CTableHeaderCell>Result Date</CTableHeaderCell>
                       <CTableHeaderCell className="text-center">Open Pana</CTableHeaderCell>
                       <CTableHeaderCell>Close Pana</CTableHeaderCell>

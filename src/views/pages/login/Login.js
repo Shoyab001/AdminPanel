@@ -76,7 +76,6 @@ const Login = () => {
     })
   }
 
-
   // console.log(InputsValue.mobile_number)
   // console.log(InputsValue.password)
   return (

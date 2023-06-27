@@ -64,12 +64,12 @@ const _nav = [
     to: '/winning',
     icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
   },
-  {
-    component: CNavItem,
-    name: 'Declare Result',
-    to: '/declareResult',
-    icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
-  },
+  // {
+  //   component: CNavItem,
+  //   name: 'Declare Result',
+  //   to: '/declareResult',
+  //   icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
+  // },
   // {
   //   component: CNavItem,
   //   name: 'Notice',

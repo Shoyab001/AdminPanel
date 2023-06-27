@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
 import {
   CFormSelect,
   CCard,
@@ -36,8 +37,24 @@ import {
   cilUser,
   cilUserFemale,
 } from '@coreui/icons'
+import { getmastertablelist } from 'src/_services/profile.service'
 
 const bitFilter = () => {
+  const [BitFilter, setbitFilter] = useState([])
+
+  useEffect(() => {
+    getmastertablelist({
+      length: 100,
+      filter: {
+        type: '648ab62a2a9cdc3b38da1f9c',
+      },
+    }).then((response) => {
+      if (response?.success) {
+        setbitFilter(response?.data?.records)
+      }
+    })
+  }, [])
+
   const table = [
     {
       user: {
@@ -82,31 +99,19 @@ const bitFilter = () => {
               </CCol>
               <CCol>
                 <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Game</p>
-                <CFormSelect
-                  aria-label="Default select example"
-                  options={[
-                    'select Game',
-                    { label: 'One', value: '1' },
-                    { label: 'Two', value: '2' },
-                    { label: 'Three', value: '3', disabled: true },
-                  ]}
-                />
-              </CCol>
-              <CCol>
-                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Pana</p>
-                <CFormSelect
-                  aria-label="Default select example"
-                  options={[
-                    'Select Pana',
-                    { label: 'One', value: '1' },
-                    { label: 'Two', value: '2' },
-                    { label: 'Three', value: '3', disabled: true },
-                  ]}
-                />
-              </CCol>
-              <CCol>
-                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Digit</p>
-                <input type="text" placeholder="0000...." />
+                <CFormSelect aria-label="Default select example">
+                  <option>Choose role</option>
+                  {BitFilter &&
+                    BitFilter?.map((items, index) => {
+                      return (
+                        <>
+                          <option value={items._id} key={index}>
+                            {items.name}
+                          </option>
+                        </>
+                      )
+                    })}{' '}
+                </CFormSelect>
               </CCol>
             </CRow>
           </div>

@@ -42,3 +42,37 @@ export async function declareresult(body) {
 
   return res.data
 }
+
+export async function getUserManagment(body) {
+  let options = {
+    url: apiPath.BASE_URL + apiPath.userManagment,
+    method: 'POST',
+    data: body,
+  }
+  const res = await makeTheApiCall(options)
+
+  return res.data
+}
+export async function createcontact(body) {
+  let options = {
+    url: apiPath.BASE_URL + apiPath.ContactUs,
+    method: 'POST',
+    data: body,
+  }
+  const res = await makeTheApiCall(options)
+
+  return res.data
+}
+
+// Add image
+
+export async function ImageType(body) {
+  let options = {
+    url: apiPath.BASE_URL + apiPath.MasterTableList,
+    method: 'POST',
+    data: body,
+  }
+  const res = await makeTheApiCall(options)
+
+  return res.data
+}
