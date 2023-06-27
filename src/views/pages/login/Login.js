@@ -19,8 +19,6 @@ import {
   CSpinner,
 } from '@coreui/react'
 
-import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit'
-
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import { Loginapi } from '../../../_services/auth.service'
@@ -39,8 +37,10 @@ const Login = () => {
   const history = useNavigate()
 
   useEffect(() => {
-    if (localStorage.getItem('user-info')) {
-      history('/')
+    if (sessionStorage.getItem('user-info')) {
+      // setTimeout(() => {
+      //   history('/')
+      // }, 500)
     }
   }, [])
   const onChangeInputs = (e) => {
@@ -75,6 +75,7 @@ const Login = () => {
       }
     })
   }
+
   // console.log(InputsValue.mobile_number)
   // console.log(InputsValue.password)
   return (

@@ -9,6 +9,7 @@ let pathApiObj = {
 
   //authentication
   LOGIN: 'auth/login',
+  SIGNUP: 'auth/signup',
 
   //roles
   // ADD_ROLES: 'admin/roles/add',
