@@ -41,7 +41,7 @@ const AppHeader = () => {
   function Logout() {
     console.log('show something')
     sessionStorage.clear()
-    isLoggedIn = false
+    // isLoggedIn = false
     navigate('/login')
   }
 
@@ -83,12 +83,11 @@ const AppHeader = () => {
   )
 }
 
-  // return <>{isLoggedIn == false ? notLoggedIn() : ''}</>
-  // return (
-  //   <>
-  //     <Body />
-  //   </>
-  // )
-  
+// return <>{isLoggedIn == false ? notLoggedIn() : ''}</>
+// return (
+//   <>
+//     <Body />
+//   </>
+// )
 
 export default AppHeader

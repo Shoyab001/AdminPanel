@@ -24,16 +24,16 @@ const ContactSetting = () => {
   }
   const onSubmit = (e) => {
     e.preventDefault()
-    // if (!InputsValue?.name) {
-    //   return setErrorObject({ name: 'Please provide name.' })
-    // }
+
     createcontact(InputsValue).then((res) => {
       if (res.success) {
         toast.success('New contact created')
       } else {
-        let { message } = res.data
+        toast.error('Please try again')
+        // let { message } = res.data
         setErrorObject((prev) => ({ ...prev }))
       }
+      console.log(res)
     })
   }
   return (

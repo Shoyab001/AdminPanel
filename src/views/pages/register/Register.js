@@ -55,20 +55,20 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    let result = Validator(Signupdetail)
-    const { error } = result
+    // let result = Validator(Signupdetail)
+    // const { error } = result
 
-    if (error) {
-      const errorData = {}
-      for (let item of error.details) {
-        const name = item.path[0]
-        const message = item.message
-        errorData[name] = message
-      }
-      setErrorObject(errorData)
-      window.scrollTo(100, 100)
-      return
-    }
+    // if (error) {
+    //   const errorData = {}
+    //   for (let item of error.details) {
+    //     const name = item.path[0]
+    //     const message = item.message
+    //     errorData[name] = message
+    //   }
+    //   setErrorObject(errorData)
+    //   window.scrollTo(100, 100)
+    //   return
+    // }
 
     let body = {
       role: role,

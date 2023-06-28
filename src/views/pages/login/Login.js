@@ -76,6 +76,11 @@ const Login = () => {
     })
   }
 
+  const navigate = useNavigate()
+  function changePassword() {
+    navigate('/changePassword')
+  }
+
   // console.log(InputsValue.mobile_number)
   // console.log(InputsValue.password)
   return (
@@ -149,7 +154,7 @@ const Login = () => {
                       {' '}
                       Sign in
                     </CButton>
-                    <a className="text-muted" href="#!">
+                    <a className="text-muted" onClick={changePassword}>
                       Forgot password?
                     </a>
                   </div>

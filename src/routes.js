@@ -1,5 +1,7 @@
 import React from 'react'
 
+// const ChangePassword = React.lazy(() => import('./views/pages/changePassword/changePassword'))
+
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const UserManagment = React.lazy(() => import('./views/UserManagment/UserManagment'))
 const UnApproved = React.lazy(() => import('./views/UserManagment/unapproved'))
@@ -20,6 +22,8 @@ const GameRate = React.lazy(() => import('./views/gameManagement/GameRate'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
+  // { path: '/changePassword', name: 'changePassword', element: ChangePassword },
+
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
 
   { path: '/UserManagment', name: 'UserManagment', element: UserManagment },
