@@ -2,6 +2,8 @@ import React from 'react'
 
 // const ChangePassword = React.lazy(() => import('./views/pages/changePassword/changePassword'))
 
+const DefaultLayout = React.lazy(() => import('../src/layout/DefaultLayout'))
+
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const UserManagment = React.lazy(() => import('./views/UserManagment/UserManagment'))
 const UnApproved = React.lazy(() => import('./views/UserManagment/unapproved'))
@@ -9,6 +11,7 @@ const DeclareResult = React.lazy(() => import('./views/DeclareResult/DeclareResu
 const WalletManagment = React.lazy(() => import('./views/walletManagment/walletManagment'))
 const ContactSetting = React.lazy(() => import('./views/contactSetting/contactSetting'))
 const PaymentManagment = React.lazy(() => import('./views/paymentManagment/paymentManagment'))
+const Login = React.lazy(() => import('./views/pages/login/Login'))
 
 const SliderImage = React.lazy(() => import('./views/sliderImage/sliderImage'))
 const AddImage = React.lazy(() => import('./views/sliderImage/addImage'))
@@ -21,7 +24,9 @@ const GameList = React.lazy(() => import('./views/gameManagement/gameList'))
 const GameRate = React.lazy(() => import('./views/gameManagement/GameRate'))
 
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
+  { path: '/', exact: true, name: 'Login' },
+
+  { path: '/DefaultLayout', exact: true, name: 'DefaultLayout', element: DefaultLayout },
   // { path: '/changePassword', name: 'changePassword', element: ChangePassword },
 
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },

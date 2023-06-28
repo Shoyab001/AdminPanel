@@ -69,7 +69,7 @@ const Login = () => {
         sessionStorage.setItem('users', JSON.stringify(users))
         // dispatch({ type: 'login-success' })
         // // console.log(result)
-        history('/')
+        navigate('/dashboard')
       } else {
         setErrorObject((prev) => ({ ...prev, password: 'Invalid mobile_number or password.' }))
       }

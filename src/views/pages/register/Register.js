@@ -70,6 +70,19 @@ const Register = () => {
     //   return
     // }
 
+    // create register
+
+    //   createUserRole(InputsValue).then((res) => {
+    //     if (res.success) {
+    //       toast.success('New role created')
+    //       history('/roles/list')
+    //     } else {
+    //       let { message } = res.data
+    //       setErrorObject((prev) => ({ ...prev, name: message }))
+    //     }
+    //   })
+    // }
+
     let body = {
       role: role,
       name: Signupdetail?.name,

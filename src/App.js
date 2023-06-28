@@ -14,6 +14,7 @@ const loading = (
 
 // Containers
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
+const Dashboard = React.lazy(() => import('../src/views/dashboard/Dashboard'))
 
 // Pages
 const Login = React.lazy(() => import('./views/pages/login/Login'))
@@ -30,7 +31,7 @@ const App = () => {
           <Route exact path="/login" name="Login Page" element={<Login />} />
           <Route exact path="/changePassword" name="Login Page" element={<ChangePassword />} />
           <Route exact path="/register" name="Register Page" element={<Register />} />
-          <Route path="*" name="Home" element={<DefaultLayout />} />
+          <Route exact path="*" name="Home" element={<DefaultLayout />} />
         </Routes>
       </Suspense>
     </HashRouter>
