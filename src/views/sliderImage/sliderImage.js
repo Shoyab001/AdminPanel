@@ -58,7 +58,7 @@ const sliderImage = () => {
               <span className="input-group-btn">
                 <button className="btn btn-secondary" type="button">
                   Search
-                </button>
+                </button> 
               </span>
             </div>
           </div>

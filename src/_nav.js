@@ -16,12 +16,7 @@ const _nav = [
     to: '/UserManagment',
     icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
   },
-  // {
-  //   component: CNavItem,
-  //   name: 'Declare Result',
-  //   to: '/DeclareResult',
-  //   icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
-  // },
+
   // {
   //   component: CNavItem,
   //   name: 'Profit/Loss',
@@ -50,6 +45,12 @@ const _nav = [
     component: CNavItem,
     name: 'Slider Image',
     to: '/sliderImage',
+    icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Declare Result',
+    to: '/DeclareResult',
     icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
   },
   {
