@@ -119,7 +119,7 @@ const Dashboard = () => {
       <CCard>
         <CCardBody>
           <div style={{ borderBottom: '3px solid #3c4b64', padding: '10px', fontWeight: 'bold' }}>
-            Filters
+            Declare Result
           </div>
         </CCardBody>
         <CCard style={{ margin: '10px' }}>
