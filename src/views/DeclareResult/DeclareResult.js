@@ -211,43 +211,50 @@ const DeclareResult = () => {
           </CRow>
         </CCardBody>
         <CCard style={{ margin: '10px' }}>
-          <CRow>
-            <CCol xs>
-              <CCardBody>
-                <CTable align="middle" className="mb-0 border" hover responsive bordered>
-                  <CTableHead color="dark">
-                    <CTableRow>
-                      <CTableHeaderCell className="text-center">
-                        <CIcon icon={cilPeople} />
-                      </CTableHeaderCell>
-                      <CTableHeaderCell>Game Name</CTableHeaderCell>
-                      <CTableHeaderCell>Result Date</CTableHeaderCell>
-                      <CTableHeaderCell className="text-center">Open Pana</CTableHeaderCell>
-                      <CTableHeaderCell>Close Pana</CTableHeaderCell>
-                      <CTableHeaderCell>Action</CTableHeaderCell>
-                    </CTableRow>
-                  </CTableHead>
-                  {/* <CTableBody>
-                    {Table.map((item, index) => (
-                      <CTableRow v-for="item in tableItems" key={index}>
-                        <CTableDataCell className="text-center">
-                          <p>1</p>
-                        </CTableDataCell>
-                        <CTableDataCell>
-                          <div></div>
-                          <div className="small text-medium-emphasis"></div>
-                        </CTableDataCell>
+        <CRow>
+          <CCol xs>
+            <CCardBody>
+              <CTable
+                align="middle"
+                className="mb-0 border"
+                hover
+                responsive
+                bordered
+                borderColor="primary"
+              >
+                <CTableHead color="dark">
+                  <CTableRow>
+                    <CTableHeaderCell className="text-center">
+                      <CIcon icon={cilPeople} />
+                    </CTableHeaderCell>
+                    <CTableHeaderCell>Market Name</CTableHeaderCell>
+                    <CTableHeaderCell>Result Date</CTableHeaderCell>
+                    <CTableHeaderCell className="text-center">Open Pana</CTableHeaderCell>
+                    <CTableHeaderCell>Close Pana</CTableHeaderCell>
+                    <CTableHeaderCell>Action</CTableHeaderCell>
+                  </CTableRow>
+                </CTableHead>
+                <CTableBody>
+                  {table.map((item, index) => (
+                    <CTableRow v-for="item in tableItems" key={index}>
+                      <CTableDataCell className="text-center">
+                        <p>1</p>
+                      </CTableDataCell>
+                      <CTableDataCell>
+                        <div></div>
+                        <div className="small text-medium-emphasis"></div>
+                      </CTableDataCell>
 
-                        <CTableDataCell></CTableDataCell>
-                        <CTableDataCell className="text-center"></CTableDataCell>
-                        <CTableDataCell></CTableDataCell>
-                      </CTableRow>
-                    ))}
-                  </CTableBody> */}
-                </CTable>
-              </CCardBody>
-            </CCol>
-          </CRow>
+                      <CTableDataCell></CTableDataCell>
+                      <CTableDataCell className="text-center"></CTableDataCell>
+                      <CTableDataCell></CTableDataCell>
+                    </CTableRow>
+                  ))}
+                </CTableBody>
+              </CTable>
+            </CCardBody>
+          </CCol>
+        </CRow>
         </CCard>
       </CCard>
     </>

@@ -65,12 +65,7 @@ const _nav = [
     to: '/winning',
     icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
   },
-  {
-    component: CNavItem,
-    name: 'Id',
-    to: '/id',
-    icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
-  },
+
   // {
   //   component: CNavItem,
   //   name: 'Notice',

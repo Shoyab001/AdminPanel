@@ -98,7 +98,9 @@ const bitFilter = () => {
                 />
               </CCol>
               <CCol>
-                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Game</p>
+                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>
+                  Market Name
+                </p>
                 <CFormSelect aria-label="Default select example">
                   <option>Choose role</option>
                   {BitFilter &&
@@ -136,7 +138,7 @@ const bitFilter = () => {
                     <CTableHeaderCell className="text-center">
                       <CIcon icon={cilPeople} />
                     </CTableHeaderCell>
-                    <CTableHeaderCell>Game Name</CTableHeaderCell>
+                    <CTableHeaderCell>Market Name</CTableHeaderCell>
                     <CTableHeaderCell>Result Date</CTableHeaderCell>
                     <CTableHeaderCell className="text-center">Open Pana</CTableHeaderCell>
                     <CTableHeaderCell>Close Pana</CTableHeaderCell>
