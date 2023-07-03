@@ -12,20 +12,16 @@ const WalletManagment = React.lazy(() => import('./views/walletManagment/walletM
 const ContactSetting = React.lazy(() => import('./views/contactSetting/contactSetting'))
 const PaymentManagment = React.lazy(() => import('./views/paymentManagment/paymentManagment'))
 const Login = React.lazy(() => import('./views/pages/login/Login'))
-
 const SliderImage = React.lazy(() => import('./views/sliderImage/sliderImage'))
 const AddImage = React.lazy(() => import('./views/sliderImage/addImage'))
-
 const BetFilter = React.lazy(() => import('./views/bitFilter/bitFilter'))
 const ProfitLoss = React.lazy(() => import('./views/profitLoss/profitLoss'))
 const Winning = React.lazy(() => import('./views/winning/winning'))
 const Notice = React.lazy(() => import('./views/notic/notic'))
 const GameList = React.lazy(() => import('./views/gameManagement/gameList'))
 const GameRate = React.lazy(() => import('./views/gameManagement/GameRate'))
-
 const routes = [
   { path: '/', exact: true, name: 'Login' },
-
   { path: '/DefaultLayout', exact: true, name: 'DefaultLayout', element: DefaultLayout },
   // { path: '/changePassword', name: 'changePassword', element: ChangePassword },
 

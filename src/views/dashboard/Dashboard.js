@@ -130,7 +130,9 @@ const Dashboard = () => {
                 <CFormInput type="date" aria-describedby="exampleFormControlInputHelpInline" />
               </CCol>
               <CCol>
-                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Game</p>
+                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>
+                  Market Name
+                </p>
                 <CFormSelect
                   aria-label="Default select example"
                   name="Session"

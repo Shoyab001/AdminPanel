@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react'
-import { cilPeople } from '@coreui/icons'
-import CIcon from '@coreui/icons-react'
-import { Table } from 'react-bootstrap'
+import styles from '../../Styles/modules/dashboard.module.scss'
+
 import {
   CFormSelect,
   CButton,
@@ -12,12 +11,107 @@ import {
   CCol,
   CRow,
   CTable,
+  CTableBody,
+  CTableDataCell,
   CTableHead,
   CTableHeaderCell,
   CTableRow,
 } from '@coreui/react'
+import { CChartLine } from '@coreui/react-chartjs'
+import { getStyle, hexToRgba } from '@coreui/utils'
+import CIcon from '@coreui/icons-react'
+import { cilPeople } from '@coreui/icons'
+
+import WidgetsDropdown from '../widgets/WidgetsDropdown'
+import {
+  getTypeDropdown,
+  declareresult,
+  list,
+  getmastertablelist,
+} from 'src/_services/profile.service'
+import { Form } from 'react-router-dom'
 
 const DeclareResult = () => {
+  const [ErrorObject, setErrorObject] = useState({})
+  const [TableLists, setTableLists] = useState([])
+  const [SessionLists, setSessionLists] = useState([])
+  const [InputsValue, setInputsValue] = useState({})
+
+  const [FilterData, setFilterData] = useState({
+    role: '648ab62a2a9cdc3b38da1f9c',
+  })
+  const [resultlist, setresultlist] = useState([])
+  const [depositresult, setDepositResult] = useState([])
+
+  useEffect(() => {
+    declareresult().then((response) => {
+      console.log(response, 'response')
+      if (response?.success) {
+        setresultlist(response?.data?.records)
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    getmastertablelist({
+      length: 100,
+      filter: {
+        type: '648ab62a2a9cdc3b38da1f9c',
+      },
+    }).then((response) => {
+      if (response?.success) {
+        setTableLists(response?.data?.records)
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    getmastertablelist({
+      length: 100,
+      filter: {
+        type: '648809675115c82490f5cdf6',
+      },
+    }).then((response) => {
+      if (response?.success) {
+        setSessionLists(response?.data?.records)
+      }
+    })
+  }, [])
+
+  const onChangeFilter = (e) => {
+    setFilterData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const onChangeInputs = (e) => {
+    setInputsValue((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    setErrorObject({})
+  }
+
+  const cards = [
+    {
+      value: {
+        amount: '0',
+      },
+    },
+  ]
+
+  const table = [
+    {
+      user: {
+        name: 'Yiorgos Avraamu',
+        number: '01572 00000',
+        new: true,
+        registered: 'date',
+      },
+
+      country: { name: 'USA' },
+
+      credit: { name: '10000 INR' },
+
+      amount: { name: '5000 INR' },
+    },
+  ]
+
   return (
     <>
       <CCard>
@@ -34,51 +128,63 @@ const DeclareResult = () => {
                 <CFormInput type="date" aria-describedby="exampleFormControlInputHelpInline" />
               </CCol>
               <CCol>
-                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Game</p>
+                <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>
+                  Market Name
+                </p>
                 <CFormSelect
                   aria-label="Default select example"
-                  options={[
-                    'select Game',
-                    { label: 'One', value: '1' },
-                    { label: 'Two', value: '2' },
-                    { label: 'Three', value: '3', disabled: true },
-                  ]}
-                />
+                  name="Session"
+                  invalid={ErrorObject?.game}
+                  onChange={onChangeInputs}
+                >
+                  <option>Choose role</option>
+                  {TableLists &&
+                    TableLists?.map((items, index) => {
+                      return (
+                        <>
+                          <option value={items._id} key={index}>
+                            {items.name}
+                          </option>
+                        </>
+                      )
+                    })}{' '}
+                </CFormSelect>
               </CCol>
               <CCol>
                 <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Session</p>
                 <CFormSelect
                   aria-label="Default select example"
-                  options={[
-                    'Select Session',
-                    { label: 'One', value: '1' },
-                    { label: 'Two', value: '2' },
-                    { label: 'Three', value: '3', disabled: true },
-                  ]}
-                />
+                  name="game"
+                  invalid={ErrorObject?.game}
+                  onChange={onChangeInputs}
+                >
+                  <option>Choose Session</option>
+                  {SessionLists &&
+                    SessionLists?.map((items, index) => {
+                      return (
+                        <>
+                          <option value={items._id} key={index}>
+                            {items.name}
+                          </option>
+                        </>
+                      )
+                    })}{' '}
+                </CFormSelect>
               </CCol>
               <CCol>
                 <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Pana</p>
-                <CFormSelect
-                  aria-label="Default select example"
-                  options={[
-                    'Select Pana',
-                    { label: 'One', value: '1' },
-                    { label: 'Two', value: '2' },
-                    { label: 'Three', value: '3', disabled: true },
-                  ]}
-                />
+                <CFormInput type="number" placeholder="5" />
               </CCol>
               <CCol>
                 <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#3c4b64' }}>Digit</p>
-                <input type="text" placeholder="0000...." />
+                <CFormInput type="number" placeholder="0000...." />
               </CCol>
             </CRow>
           </div>
           <br />
         </CCard>
       </CCard>
-
+      <br />
       <CCard>
         <CCardBody>
           <CRow>

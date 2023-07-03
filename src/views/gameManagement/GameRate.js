@@ -23,6 +23,8 @@ import {
   CForm,
 } from '@coreui/react'
 const GameRate = () => {
+  const [counter, setCounter] = useState(1)
+
   return (
     <>
       <div>
