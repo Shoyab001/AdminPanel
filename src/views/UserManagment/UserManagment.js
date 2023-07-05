@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   CFormSelect,
@@ -31,21 +31,31 @@ import { cilPeople } from '@coreui/icons'
 import { CFormInput } from '@coreui/bootstrap-react'
 import { Link } from 'react-router-dom'
 import { Button } from '@coreui/coreui'
+import { getUserManagment } from 'src/_services/profile.service'
 
-const table = [
-  {
-    user: {
-      name: 'Yiorgos Avraamu',
-      number: '01572 00000',
-      new: true,
-      registered: 'date',
-    },
+// const table = [
+//   {
+//     user: {
+//       name: 'Yiorgos Avraamu',
+//       number: '01572 00000',
+//       new: true,
+//       registered: 'date',
+//     },
 
-    points: { name: '10' },
-  },
-]
+//     points: { name: '10' },
+//   },
+// ]
 
 const UserManagment = () => {
+  const [TableLists, setTableLists] = useState([])
+  useEffect(() => {
+    getUserManagment().then((response) => {
+      console.log(response, 'response')
+      if (response?.success) {
+        setTableLists(response?.data?.records)
+      }
+    })
+  }, [])
   const navigate = useNavigate()
   function unapproved() {
     navigate('/unapproved')
@@ -102,19 +112,19 @@ const UserManagment = () => {
                   </CTableRow>
                 </CTableHead>
                 <CTableBody>
-                  {table.map((item, index) => (
+                  {TableLists?.map((item, index) => {
                     <CTableRow v-for="item in tableItems" key={index}>
                       <CTableDataCell className="text-center">
                         <p>1</p>
                       </CTableDataCell>
                       <CTableDataCell>
-                        <div>{item.user.name}</div>
-                        <div className="small text-medium-emphasis">{item.user.number}</div>
+                        <div></div>
+                        <div className="small text-medium-emphasis"></div>
                       </CTableDataCell>
 
-                      <CTableDataCell>{item.points.name}</CTableDataCell>
+                      <CTableDataCell></CTableDataCell>
                       <CTableDataCell className="text-center">
-                        {item.user.registered}
+                        
                       </CTableDataCell>
                       <CTableDataCell>
                         <CButton component="input" type="button" color="dark" value="Yes" />
@@ -136,7 +146,7 @@ const UserManagment = () => {
                         </a>
                       </CTableDataCell>
                     </CTableRow>
-                  ))}
+                  })}
                 </CTableBody>
               </CTable>
             </CCardBody>

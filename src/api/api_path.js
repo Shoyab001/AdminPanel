@@ -25,6 +25,9 @@ let pathApiObj = {
   //contactus
   ContactUs: 'contact-us/create',
 
+  //changepassward
+  Changepassward: 'auth/change-password',
+
   //roles
   // ADD_ROLES: 'admin/roles/add',
   // ROLE_LIST: 'admin/roles/list',

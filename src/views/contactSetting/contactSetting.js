@@ -20,14 +20,17 @@ const ContactSetting = () => {
 
   const onChangeInputs = (e) => {
     setInputsValue((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+
     setErrorObject({})
   }
   const onSubmit = (e) => {
+    console.log(InputsValue)
     e.preventDefault()
 
     createcontact(InputsValue).then((res) => {
       if (res.success) {
         toast.success('New contact created')
+        console.log(res)
       } else {
         toast.error('Please try again')
         // let { message } = res.data
@@ -184,7 +187,7 @@ const ContactSetting = () => {
             />
           </CCol>
           <CCol xs={12} className="p-2">
-            <CButton type="submit" onSubmit={onSubmit}>
+            <CButton type="button" onClick={onSubmit}>
               Submit
             </CButton>
           </CCol>

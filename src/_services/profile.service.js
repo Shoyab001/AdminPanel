@@ -59,6 +59,7 @@ export async function createcontact(body) {
     method: 'POST',
     data: body,
   }
+  console.log(body)
   const res = await makeTheApiCall(options)
 
   return res.data

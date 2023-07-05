@@ -34,9 +34,9 @@ export async function Signup(body) {
   }
 }
 
-export async function ChangePassword(body) {
+export async function Changepassword(body) {
   try {
-    const res = await axios.post(apipath.BASE_URL + apipath.Changepassword, body, {
+    const res = await axios.post(apipath.BASE_URL + apipath.Changepassward, body, {
       headers: {
         'x-testing-platform': 'web',
         'x-testing-version': '1.0.0',
