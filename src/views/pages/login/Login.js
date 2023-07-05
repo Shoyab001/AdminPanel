@@ -84,7 +84,7 @@ const Login = () => {
   // console.log(InputsValue.mobile_number)
   // console.log(InputsValue.password)
   return (
-    <div className=" min-vh-100 d-flex flex-row align-items-center background">
+    <div className=" max-vh-100 min-vh-100 d-flex flex-row align-items-center background">
       <CContainer>
         <div
           className="justify-content-center"
@@ -96,9 +96,9 @@ const Login = () => {
           }}
         >
           <CCardGroup>
-            <CCard className="" style={{ width: '44%' }}>
+            <CCard className="">
               <CCardBody className="text-center">
-                <div className="d-flex flex-column ms-5 mx-5" width="100px">
+                <div className="d-flex flex-column ms-5 mx-5">
                   <div className="text-center">
                     <img
                       src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
@@ -146,7 +146,7 @@ const Login = () => {
 
                   <div className="text-center pt-1 mb-5 pb-1">
                     <CButton
-                      className="mb-4 w-100 gradient-custom-2"
+                      className="mb-5 w-100 gradient-custom-2"
                       onClick={(e) => {
                         handleLogin(e)
                       }}

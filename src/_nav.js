@@ -16,16 +16,13 @@ const _nav = [
     to: '/UserManagment',
     icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
   },
-<<<<<<< HEAD
 
-=======
   {
     component: CNavItem,
     name: 'Declare Result',
     to: '/DeclareResult',
     icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
   },
->>>>>>> ec738dcecc28f36e1ab33e24e5ca68d3b032f31e
   // {
   //   component: CNavItem,
   //   name: 'Profit/Loss',
