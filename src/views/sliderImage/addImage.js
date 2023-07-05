@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import { ImageType } from 'src/_services/profile.service'
 
-const addImage = () => {
+const AddImage = () => {
   const [TypeLists, setTypeLists] = useState([])
   const [RedirectLists, setRedirectLists] = useState([])
 
@@ -18,7 +18,7 @@ const addImage = () => {
       }
     })
   }, [])
-  
+
   useEffect(() => {
     ImageType({
       length: 100,
@@ -95,4 +95,4 @@ const addImage = () => {
   )
 }
 
-export default addImage
+export default AddImage

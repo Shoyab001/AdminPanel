@@ -17,7 +17,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilPeople } from '@coreui/icons'
 
-const sliderImage = () => {
+const SliderImage = () => {
   const navigate = useNavigate()
   function add() {
     navigate('/addimage')
@@ -118,4 +118,4 @@ const sliderImage = () => {
   )
 }
 
-export default sliderImage
+export default SliderImage

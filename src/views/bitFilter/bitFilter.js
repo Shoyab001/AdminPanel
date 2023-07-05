@@ -39,7 +39,7 @@ import {
 } from '@coreui/icons'
 import { getmastertablelist } from 'src/_services/profile.service'
 
-const bitFilter = () => {
+const BitFilter = () => {
   const [BitFilter, setbitFilter] = useState([])
 
   useEffect(() => {
@@ -171,4 +171,4 @@ const bitFilter = () => {
   )
 }
 
-export default bitFilter
+export default BitFilter

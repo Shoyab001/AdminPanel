@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
   CButton,
@@ -14,8 +14,35 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilPhone, cilUser } from '@coreui/icons'
+import { toast } from 'react-toastify'
+import { Changepassword } from 'src/_services/auth.service'
 
-const changePassword = () => {
+const ChangePassword = () => {
+  const [Inputvalues, setInputValues] = useState({})
+
+  const onChangeInput = (e) => {
+    e.preventDefault()
+    setInputValues((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }))
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const body = {
+      _id: '648fea4c5101f0086097b7b0',
+      oldPassword: Inputvalues?.oldPassword,
+      password: Inputvalues?.password,
+      confirm_password: Inputvalues?.confirm_password,
+    }
+    Changepassword(body).then((response) => {
+      if (response?.success) {
+        toast.success('password has been changed')
+      } else {
+        toast.error(response?.message)
+      }
+    })
+  }
   return (
     <>
       <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
@@ -29,11 +56,17 @@ const changePassword = () => {
                     <p className="text-medium-emphasis">Change your account</p>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
-                        <CIcon icon={cilUser} />
+                        <CIcon icon={cilLockLocked} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
+                      <CFormInput
+                        type="password"
+                        placeholder="old-password"
+                        autoComplete="old-password"
+                        onChange={(e) => {
+                          onChangeInput(e)
+                        }}
+                      />
                     </CInputGroup>
-
 
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
@@ -43,6 +76,9 @@ const changePassword = () => {
                         type="password"
                         placeholder="new-password"
                         autoComplete="new-password"
+                        onChange={(e) => {
+                          onChangeInput(e)
+                        }}
                       />
                     </CInputGroup>
 
@@ -54,11 +90,21 @@ const changePassword = () => {
                         type="password"
                         placeholder="Confirm password"
                         autoComplete="Confirm password"
+                        onChange={(e) => {
+                          onChangeInput(e)
+                        }}
                       />
                     </CInputGroup>
 
                     <div className="d-grid">
-                      <CButton color="success">Change Password</CButton>
+                      <CButton
+                        color="success"
+                        onClick={(e) => {
+                          handleSubmit(e)
+                        }}
+                      >
+                        Change Password
+                      </CButton>
                     </div>
                   </CForm>
                 </CCardBody>
@@ -71,4 +117,4 @@ const changePassword = () => {
   )
 }
 
-export default changePassword
+export default ChangePassword
