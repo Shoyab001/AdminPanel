@@ -113,7 +113,7 @@ const UserManagment = () => {
                 </CTableHead>
                 <CTableBody>
                   {TableLists?.map((item, index) => {
-                    <CTableRow v-for="item in tableItems" key={index}>
+                    ;<CTableRow v-for="item in tableItems" key={index}>
                       <CTableDataCell className="text-center">
                         <p>1</p>
                       </CTableDataCell>
@@ -123,9 +123,7 @@ const UserManagment = () => {
                       </CTableDataCell>
 
                       <CTableDataCell></CTableDataCell>
-                      <CTableDataCell className="text-center">
-                        
-                      </CTableDataCell>
+                      <CTableDataCell className="text-center"></CTableDataCell>
                       <CTableDataCell>
                         <CButton component="input" type="button" color="dark" value="Yes" />
                       </CTableDataCell>

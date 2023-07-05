@@ -1,13 +1,12 @@
-@import "./partials/reset";
-@import "./partials/variables";
-@import "./partials/typography";
-@import "./partials/flags.min.css";
-@import "./partials/all.css";
+@import './partials/reset';
+@import './partials/variables';
+@import './partials/typography';
+@import './partials/flags.min.css';
+@import './partials/all.css';
 :focus-visible {
   outline: -webkit-focus-ring-color auto 0px;
 }
 .form-select:focus {
-
   outline: 0;
   box-shadow: none !important;
 }
@@ -153,7 +152,7 @@ textarea.form-control {
   }
 }
 
-.sidebarborder{
+.sidebarborder {
   border-right: 1px solid #eee;
 }
 
@@ -183,9 +182,8 @@ textarea.form-control {
       margin: 0 auto;
       h1 {
         font-size: 45px !important;
-    margin-top: -10px;
-    font-weight: 300;
-    
+        margin-top: -10px;
+        font-weight: 300;
       }
 
       p {
@@ -281,7 +279,7 @@ textarea.form-control {
   z-index: 2;
   &:before {
     position: absolute;
-    content: "";
+    content: '';
     background: #f9f9f9;
     height: 300px;
     width: 300px;
@@ -480,7 +478,7 @@ textarea.form-control {
         color: #000;
       }
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         background-color: #ed1c24;
         top: 0;
@@ -551,7 +549,6 @@ textarea.form-control {
       .modal-body {
         padding: 30px;
       }
-  
     }
   }
 }
@@ -575,7 +572,7 @@ textarea.form-control {
       padding: 0 10px;
     }
     &:before {
-      content: "";
+      content: '';
       background: red;
       width: 100%;
       position: absolute;
@@ -728,16 +725,15 @@ textarea.form-control {
 }
 
 .dashboardTabs {
-    //   box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 50%);
-    // transform: translateY(-5px);
-    // /* width: 1009px; */
-    // width: 80%;
+  //   box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 50%);
+  // transform: translateY(-5px);
+  // /* width: 1009px; */
+  // width: 80%;
   .nav {
     li {
-      
       button {
         color: #8fa0b9;
-        
+
         &.active {
           background-color: $color-brand-primary;
           color: #fff;
@@ -748,13 +744,11 @@ textarea.form-control {
 }
 
 .customTable {
-
   padding: 15px;
   background: #f9f9f9;
   border: solid 1px #dee2e6;
-  
-  table {
 
+  table {
     tr {
       th {
         font-weight: bold;
@@ -829,12 +823,12 @@ textarea.form-control {
 
 .checkBox {
   margin: 0.5rem;
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     position: absolute;
     opacity: 0;
     + .checkBox-label {
       &:before {
-        content: "";
+        content: '';
         background: #fff;
         border-radius: 100%;
         border: 2px solid ($color-brand-primary);
@@ -867,7 +861,6 @@ textarea.form-control {
   }
 }
 
-
 // .aboutusheading:before{
 //   content: "";
 //   position: absolute;
@@ -885,50 +878,40 @@ textarea.form-control {
 //   z-index: -1;
 // }
 
-
-
-
-
-
-
-.card{
-
+.card {
   background-color: #fff;
 
   // border:none;
 }
 
-.input-box{
+.input-box {
   position: relative;
 }
 
 .input-box i {
   position: absolute;
   right: 13px;
-  top:15px;
-  color:#ced4da;
-
+  top: 15px;
+  color: #ced4da;
 }
 
-.form-control{
-
+.form-control {
   height: 50px;
-  background-color:#eeeeee69;
+  background-color: #eeeeee69;
 }
 
-.form-control:focus{
+.form-control:focus {
   background-color: #eeeeee69;
   box-shadow: none;
   border-color: #eee;
 }
 
-
-.modal-content{
+.modal-content {
   margin-top: 8rem;
 }
 
 h1.heading:before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 50px;
   height: 16px;
@@ -944,9 +927,6 @@ h1.heading:before {
   z-index: -1;
 }
 
-h1.heading{
+h1.heading {
   position: relative;
 }
-
-
-
