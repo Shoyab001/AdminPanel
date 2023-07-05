@@ -87,6 +87,8 @@ const ContactSetting = () => {
               id="specificSizeInputNumber"
               onChange={onChangeInputs}
               invalid={ErrorObject?.notification}
+              style={{ paddingBottom: '5rem' }}
+              placeholder="enter text here ......."
             />
           </CCol>
           <CCol xs={12} className="p-2">

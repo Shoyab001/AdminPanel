@@ -374,7 +374,7 @@ const Dashboard = () => {
                 </CCardBody>
               </CCard>
             </CCol> */}
-            <CCol style={{ margin: '20px' }} xs={3}>
+            <CCol style={{ margin: '20px' }} lg={3} xs={12}>
               <CCard>
                 <CCardBody className="text-center" style={{ color: '#3c4b64' }}>
                   <h5 style={{ fontSize: '17px', fontWeight: 'bold' }}>Total Bids</h5>
